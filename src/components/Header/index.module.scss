@@ -1,0 +1,30 @@
+header {
+	display: flex;
+	flex-direction: column;
+	color: #ffffff;
+	width: 100%;
+	font-family: Lato, sans-serif;
+
+	.mojo {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+		// background-color: green;
+	}
+
+	.mojoText {
+		width: 50%;
+		background-color: green;
+	}
+
+	.bell {
+		display: flex;
+		justify-content: flex-end;
+		width: 50%;
+		background-color: blue;
+		padding-right: 2rem;
+		& > img {
+			width: 5%;
+		}
+	}
+}
