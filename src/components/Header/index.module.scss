@@ -1,26 +1,46 @@
 header {
 	display: flex;
+	// justify-content: space-between;
 	flex-direction: column;
 	color: #ffffff;
 	width: 100%;
 	font-family: Lato, sans-serif;
+	height: auto;
+	// padding: 3rem;
 
 	.mojo {
 		display: flex;
-		justify-content: space-between;
+		padding: 3rem;
 		width: 100%;
-		// background-color: green;
-	}
+		background-color: red;
+		.mojoText {
+			display: flex;
+			width: 20%;
+			align-items: center;
+			background-color: green;
+			.mojoImg {
+				width: 100%;
+				border-radius: 50%;
+				& > img {
+					display: inline-block;
+					border-radius: 50%;
+					width: 100%;
+					height: 250px;
+				}
+			}
+		}
 
-	.mojoText {
-		width: 50%;
-		background-color: green;
+		.mojoHeading {
+			display: flex;
+			width: 50%;
+			flex-direction: column;
+		}
 	}
 
 	.bell {
 		display: flex;
 		justify-content: flex-end;
-		width: 50%;
+		width: 80%;
 		background-color: blue;
 		padding-right: 2rem;
 		& > img {
