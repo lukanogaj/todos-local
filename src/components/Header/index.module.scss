@@ -5,6 +5,7 @@ header {
 	width: 100%;
 	font-family: Lato, sans-serif;
 	height: auto;
+	background-color: #181818;
 
 	.mojo {
 		display: flex;
@@ -53,9 +54,12 @@ header {
 		justify-content: flex-end;
 		width: 75%;
 		padding-right: 2rem;
+		background-color: #181818;
+		// mix-blend-mode: multiply;
+		// filter: contrast(1);
 		& > img {
 			width: 5%;
-			background: #ffffff;
+			background-color: #181818;
 		}
 	}
 }

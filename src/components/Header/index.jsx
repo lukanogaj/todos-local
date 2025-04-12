@@ -1,5 +1,5 @@
 import styles from "./index.module.scss";
-import bell from "../images/icons/bell.svg";
+import bell from "../images/icons/bell.png";
 import mojotodos from "../images/mojotodos.jpg";
 
 const Header = () => {
