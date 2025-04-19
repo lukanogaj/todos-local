@@ -6,60 +6,60 @@ header {
 	font-family: Lato, sans-serif;
 	height: auto;
 	background-color: #181818;
-
 	.mojo {
 		display: flex;
-		padding: 3rem;
+		justify-content: space-between;
 		width: 100%;
 		align-items: center;
 		.mojoText {
 			display: flex;
-			justify-content: space-around;
-			width: 25%;
+			width: 27%;
+			justify-content: space-between;
 			align-items: center;
-			padding: 1rem;
+
 			.mojoImg {
-				width: 50%;
+				display: flex;
 				border-radius: 50%;
 				& > img {
-					display: inline-block;
 					border-radius: 50%;
-					width: 15rem;
-					height: 15rem;
+					width: 8rem;
+					height: 8rem;
+					object-fit: fill;
 				}
 			}
-		}
 
-		.mojoHeading {
-			display: flex;
-			flex-direction: column;
-			align-content: center;
-			gap: 15px;
-			width: 50%;
-			& > h3 {
-				display: inline-block;
-				font-size: 3.5rem;
-			}
-			& > h4 {
-				display: inline-block;
-				font-size: 2.4rem;
-				font-weight: 400;
-				letter-spacing: 0.2rem;
+			.mojoHeading {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+
+				align-content: center;
 			}
 		}
 	}
-
 	.bell {
 		display: flex;
-		justify-content: flex-end;
-		width: 75%;
-		padding-right: 2rem;
-		background-color: #181818;
-		// mix-blend-mode: multiply;
-		// filter: contrast(1);
+		align-items: center;
+
+		object-fit: fill;
 		& > img {
-			width: 5%;
-			background-color: #181818;
+			width: 5rem;
+			height: 5rem;
+			object-fit: fill;
 		}
+	}
+	//Main tags
+	h1 {
+		font-size: 8rem;
+	}
+
+	h3 {
+		font-size: 2rem;
+		letter-spacing: 0.1rem;
+	}
+
+	h4 {
+		font-size: 1.9rem;
+		font-weight: 400;
 	}
 }

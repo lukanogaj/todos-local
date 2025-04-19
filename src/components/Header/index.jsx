@@ -14,8 +14,8 @@ const Header = () => {
 						/>
 					</div>
 					<div className={styles.mojoHeading}>
-						<h3>Hey Lukasz!</h3>
-						<h4>Stay Motivated!🔥 </h4>
+						<h3>Hey, Lukasz!</h3>
+						<h4>Stay Motivated! 🔥 </h4>
 					</div>
 				</div>
 				<div className={styles.bell}>
