@@ -1,0 +1,11 @@
+.action {
+	display: flex;
+	width: 100%;
+	background-color: blue;
+
+	.tasks {
+		display: flex;
+		width: 50%;
+		background-color: red;
+	}
+}
