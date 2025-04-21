@@ -1,11 +1,18 @@
 import styles from "./index.module.scss";
+import data from "../data";
 
+// Div that include 4 divs (Todays tasks list, todays task with information how many tasks has been done , add new task div, and greeting of support)
 const Action = () => {
 	return (
 		<div className={styles.action}>
 			{/* Today's tasks */}
 			<div className={styles.tasks}>
-				<div className={styles.todayTask}></div>
+				<div className={styles.todayTask}>
+					<h2>Today's Tasks</h2>
+					{data.tasks.map((todoItem) => (
+						<div key={todoItem.id}>{todoItem.task}</div>
+					))}
+				</div>
 				<div className={styles.taskCounter}></div>
 			</div>
 			{/* Add new task and greeting  */}
