@@ -1,5 +1,5 @@
-import styles from "./index.module.scss";
 import PropTypes from "prop-types";
+import styles from "./index.module.scss";
 
 // import { useState } from "react";
 // import useLocalStorage from "use-local-storage";

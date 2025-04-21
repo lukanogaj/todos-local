@@ -6,15 +6,27 @@ const Action = () => {
 	return (
 		<div className={styles.action}>
 			{/* Today's tasks */}
-			<div className={styles.tasks}>
-				<div className={styles.todayTask}>
-					<h2>Today's Tasks</h2>
-					{data.tasks.map((todoItem) => (
-						<div key={todoItem.id}>{todoItem.task}</div>
-					))}
-				</div>
-				<div className={styles.taskCounter}></div>
+			<div className={styles.taskTable}>
+				<h2>Today's Tasks</h2>
+				{data.tasks.map((todoItem) => (
+					<div
+						key={todoItem.id}
+						className={styles.tasks}>
+						<div className={styles.taskIcon}>
+							<img
+								src={todoItem.checkIcon}
+								alt="box"
+							/>
+						</div>
+						<div
+							className={styles.taskText}
+							key={todoItem.id}>
+							{todoItem.task}
+						</div>
+					</div>
+				))}
 			</div>
+			<div className={styles.taskCounter}></div>
 			{/* Add new task and greeting  */}
 			<div className={styles.addTasks}>
 				<div className={styles.addTask}></div>

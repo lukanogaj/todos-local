@@ -1,13 +1,45 @@
 .action {
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-between;
 	width: 100%;
-	// background-color: blue;
-	background-color: #181818;
+	background-color: blue;
+	font-family: "Lato", sans-serif;
+	// background-color: #181818;
 
-	.tasks {
+	.taskTable {
+		display: flex;
+		justify-content: center;
+		// justify-content: space-between;
+		padding: 1rem;
+		flex-direction: column;
+		width: 50%;
+		background-color: yellow;
+
+		.tasks {
+			display: flex;
+			justify-content: left;
+			width: 80%;
+			background-color: red;
+		}
+	}
+
+	.taskIcon {
+		width: 50%;
+		img {
+			display: inline-block;
+			width: 40px;
+		}
+
+		.taskText {
+			display: 50%;
+			width: 50%;
+			background-color: green;
+		}
+	}
+
+	.addTasks {
 		display: flex;
 		width: 50%;
-		background-color: red;
+		background-color: green;
 	}
 }

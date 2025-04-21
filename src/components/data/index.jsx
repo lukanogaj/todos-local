@@ -1,5 +1,5 @@
-import check from "../images/icons/check.png";
-import uncheck from "../images/icons/uncheck.png";
+import check from "../images/icons/check.svg";
+import uncheck from "../images/icons/uncheck.svg";
 
 const data = {
 	tasks: [
