@@ -1,35 +1,53 @@
 .action {
 	display: flex;
 	justify-content: space-between;
-	// flex-direction: column;
 	width: 100%;
-	// height: 50%;
 	background-color: blue;
 	font-family: "Lato", sans-serif;
 	// background-color: #181818;
 
-	.taskTable {
+	.taskContainer {
 		display: flex;
-		border-radius: 2rem;
-
-		// justify-content: center;
-		// justify-content: space-between;
-		padding: 1rem;
 		flex-direction: column;
 		width: 50%;
-		background-color: yellow;
-
-		.tasks {
+		.taskTable {
 			display: flex;
-			align-items: center;
-			font-size: 1.6rem;
-
-			// justify-content: left;
+			border-radius: 2rem;
+			padding: 1rem;
+			flex-direction: column;
 			width: 100%;
-			background-color: red;
+			background-color: yellow;
+			.tasks {
+				display: flex;
+				align-items: center;
+				font-size: 1.6rem;
+				width: 100%;
+				background-color: red;
+			}
+		}
+		.taskHeading {
+			display: flex;
+			justify-content: space-between;
+			padding: 1rem;
+			img {
+				display: inline-block;
+				width: 30px;
+			}
+		}
+
+		.taskCounter {
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+			padding: 3rem;
+			background-color: green;
+			border-radius: 2rem;
+			.taskCounterHeading {
+				display: flex;
+				flex-direction: column;
+			}
 		}
 	}
-
 	.taskIcon {
 		width: 15%;
 		img {
