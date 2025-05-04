@@ -39,6 +39,29 @@ const Action = () => {
 						<h2>Today's Tasks</h2>
 						<p>1 out of 4 done</p>
 					</div>
+					<div className={styles.precentageCircle}>
+						<svg
+							width="250"
+							height="250"
+							viewBox="0 0 250 250">
+							<circle
+								class="bg"
+								cx="125"
+								cy="125"
+								r="115"
+								fill="none"
+								stroke="#ddd"
+								stroke-width="20"></circle>
+							<circle
+								class="fg"
+								cx="125"
+								cy="125"
+								r="115"
+								fill="none"
+								stroke="#5394fd"
+								stroke-width="20"></circle>
+						</svg>
+					</div>
 				</div>
 			</div>
 			<div className={styles.taskCounter}></div>
