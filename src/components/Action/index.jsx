@@ -41,25 +41,30 @@ const Action = () => {
 					</div>
 					<div className={styles.precentageCircle}>
 						<svg
-							width="250"
-							height="250"
+							width="105"
+							height="105"
 							viewBox="0 0 250 250">
 							<circle
-								class="bg"
+								className={styles.bg}
 								cx="125"
 								cy="125"
 								r="115"
 								fill="none"
-								stroke="#ddd"
-								stroke-width="20"></circle>
+								stroke="#000000"
+								stroke-width="20">
+								<h3>25%</h3>
+							</circle>
 							<circle
-								class="fg"
+								className={styles.fg}
 								cx="125"
 								cy="125"
 								r="115"
 								fill="none"
-								stroke="#5394fd"
-								stroke-width="20"></circle>
+								stroke="#F76702"
+								stroke-width="20"
+								strokeDasharray="361.25 361.25">
+								<h3>25%</h3>
+							</circle>
 						</svg>
 					</div>
 				</div>
