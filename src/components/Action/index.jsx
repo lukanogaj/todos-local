@@ -39,33 +39,10 @@ const Action = () => {
 						<h2>Today's Tasks</h2>
 						<p>1 out of 4 done</p>
 					</div>
-					<div className={styles.precentageCircle}>
-						<svg
-							width="105"
-							height="105"
-							viewBox="0 0 250 250">
-							<circle
-								className={styles.bg}
-								cx="125"
-								cy="125"
-								r="115"
-								fill="none"
-								stroke="#000000"
-								stroke-width="20">
-								<h3>25%</h3>
-							</circle>
-							<circle
-								className={styles.fg}
-								cx="125"
-								cy="125"
-								r="115"
-								fill="none"
-								stroke="#F76702"
-								stroke-width="20"
-								strokeDasharray="361.25 361.25">
-								<h3>25%</h3>
-							</circle>
-						</svg>
+					<div className={styles.circularProgressContainer}>
+						<div className={styles.circularProgress}>
+							<span className={styles.progressValue}>25%</span>
+						</div>
 					</div>
 				</div>
 			</div>
