@@ -1,9 +1,16 @@
 import styles from "./index.module.scss";
 import data from "../data";
 import arrowUp from "../images/icons/arrow-up.svg";
+// import ReviewsBar from "../ReviewsBar";
+import { useState } from "react";
 
 // Div that include 4 divs (Todays tasks list, todays task with information how many tasks has been done , add new task div, and greeting of support)
 const Action = () => {
+	// const ReviewBar = (props) => {
+	// 	const { score } = props;
+	// 	return <CircularProgressbar />;
+	// };
+
 	return (
 		<div className={styles.action}>
 			{/* Today's tasks */}
@@ -40,9 +47,12 @@ const Action = () => {
 						<p>1 out of 4 done</p>
 					</div>
 					<div className={styles.circularProgressContainer}>
-						<div className={styles.circularProgress}>
+						{/* <ReviewsBar /> */}
+						{/* <div
+							className={styles.progressBar}
+							enableProgressBar={enableProgressBar}>
 							<span className={styles.progressValue}>25%</span>
-						</div>
+						</div> */}
 					</div>
 				</div>
 			</div>

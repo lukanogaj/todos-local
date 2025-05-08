@@ -67,38 +67,38 @@
 		}
 		// Tack counter with precentage circle
 
-		.circularProgressContainer {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			width: 50%;
-			background-color: yellow;
-			align-content: center;
-			.circularProgress {
-				position: relative;
-				height: 100px;
-				width: 100px;
-				border-radius: 50%;
-				background: conic-gradient(#000 3.6deg, #f76702 0deg);
-				display: flex;
-				align-items: center;
-				justify-content: center;
-			}
-			.progressValue {
-				position: relative;
-				color: #fff;
-				font-size: 1rem;
-			}
-		}
+		// .circularProgressContainer {
+		// 	display: flex;
+		// 	justify-content: center;
+		// 	align-items: center;
+		// 	width: 50%;
+		// 	background-color: yellow;
+		// 	align-content: center;
+		// 	.progressBar {
+		// 		position: relative;
+		// 		height: 100px;
+		// 		width: 100px;
+		// 		border-radius: 50%;
+		// 		background: conic-gradient(#000 3.6deg, #f76702 0deg);
+		// 		display: flex;
+		// 		align-items: center;
+		// 		justify-content: center;
+		// 	}
+		// 	.progressValue {
+		// 		position: relative;
+		// 		color: #fff;
+		// 		font-size: 1rem;
+		// 	}
+		// }
 
-		.circularProgress::before {
-			content: "";
-			position: absolute;
-			height: 80px;
-			width: 80px;
-			background-color: #252525;
-			border-radius: 50%;
-		}
+		// .circularProgress::before {
+		// 	content: "";
+		// 	position: absolute;
+		// 	height: 80px;
+		// 	width: 80px;
+		// 	background-color: #252525;
+		// 	border-radius: 50%;
+		// }
 	}
 	.taskIcon {
 		width: 15%;
