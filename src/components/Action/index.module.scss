@@ -65,7 +65,15 @@
 				}
 			}
 		}
-		// Tack counter with precentage circle
+
+		.circularProgressContainer {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 50%;
+			background-color: yellow;
+			align-content: center;
+		}
 
 		// .circularProgressContainer {
 		// 	display: flex;
