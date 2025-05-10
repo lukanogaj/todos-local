@@ -69,6 +69,7 @@
 		.circularProgressContainer {
 			display: flex;
 			justify-content: center;
+			flex-direction: column;
 			align-items: center;
 			width: 50%;
 			background-color: yellow;

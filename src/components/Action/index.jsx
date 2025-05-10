@@ -1,11 +1,11 @@
 import styles from "./index.module.scss";
+import CircleProgressBar from "../CircleProgressBar";
+import BarPercentage from "../BarPrecentage";
 import data from "../data";
 import arrowUp from "../images/icons/arrow-up.svg";
-import ReviewsBar from "../ReviewsBar";
-import { useState } from "react";
 
 // Div that include 4 divs (Todays tasks list, todays task with information how many tasks has been done , add new task div, and greeting of support)
-const Action = () => {
+const Action = ({ precentage }) => {
 	// const ReviewBar = (props) => {
 	// 	const { score } = props;
 	// 	return <CircularProgressbar />;
@@ -47,7 +47,11 @@ const Action = () => {
 						<p>1 out of 4 done</p>
 					</div>
 					<div className={styles.circularProgressContainer}>
-						<ReviewsBar />
+						<CircleProgressBar
+							precentage={precentage}
+							circleWidth="200"
+						/>
+						<BarPercentage />
 						{/* <div
 							className={styles.progressBar}
 							enableProgressBar={enableProgressBar}>
