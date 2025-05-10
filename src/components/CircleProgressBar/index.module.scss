@@ -1,5 +1,5 @@
 :root {
-	--color1: #12c2e9;
+	--color1: #f76702;
 	--color2: #c471ed;
 	--color3: #f64f59;
 }
@@ -14,6 +14,11 @@
 	align-content: center;
 	.circleBackground {
 		fill: none;
-		stroke: #f76702;
+		stroke: #000;
+		// stroke: #f76702;
+	}
+	.circleProgress {
+		fill: none;
+		stroke: var(--color1);
 	}
 }

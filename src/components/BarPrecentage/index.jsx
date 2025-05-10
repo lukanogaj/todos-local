@@ -12,6 +12,7 @@ const BarPercentage = () => {
 				step="1"
 				value={percentage}
 				onChange={(ev) => setPercentage(ev.target.value)}
+				percentage={percentage}
 			/>
 		</div>
 	);

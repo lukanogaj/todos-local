@@ -1,8 +1,11 @@
 import { useState } from "react";
 import styles from "./index.module.scss";
 
-const CircleProgressBar = ({ precentage, circleWidth }) => {
-	const radius = 85;
+const CircleProgressBar = ({ percentage, circleWidth }) => {
+	const radius = 75;
+	const dashArray = radius * Math.PI * 2;
+	const dashOffset = dashArray - (dashArray * percentage) / 100;
+	console.log(dashArray);
 	return (
 		<div className={styles.barContainer}>
 			<svg
@@ -15,6 +18,14 @@ const CircleProgressBar = ({ precentage, circleWidth }) => {
 					cy={circleWidth / 2}
 					strokeWidth="15px"
 					r={radius}
+				/>
+				<circle
+					cx={circleWidth / 2}
+					cy={circleWidth / 2}
+					strokeWidth="15px"
+					r={radius}
+					className={styles.circleProgress}
+					style={{ strokeDasharray: dashArray, strokeDashoffset: dashOffset }}
 				/>
 			</svg>
 		</div>
