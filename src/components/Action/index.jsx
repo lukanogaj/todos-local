@@ -1,16 +1,11 @@
 import styles from "./index.module.scss";
-import CircleProgressBar from "../CircleProgressBar";
-import BarPercentage from "../BarPrecentage";
+import { useState } from "react";
 import data from "../data";
 import arrowUp from "../images/icons/arrow-up.svg";
-
+import ProgressBar from "../ProgressBar";
 // Div that include 4 divs (Todays tasks list, todays task with information how many tasks has been done , add new task div, and greeting of support)
-const Action = ({ precentage }) => {
-	// const ReviewBar = (props) => {
-	// 	const { score } = props;
-	// 	return <CircularProgressbar />;
-	// };
-
+const Action = () => {
+	const [percentage, setPercentage] = useState(10);
 	return (
 		<div className={styles.action}>
 			{/* Today's tasks */}
@@ -47,16 +42,18 @@ const Action = ({ precentage }) => {
 						<p>1 out of 4 done</p>
 					</div>
 					<div className={styles.circularProgressContainer}>
-						<CircleProgressBar
-							precentage={precentage}
+						<ProgressBar
+							percentage={percentage}
 							circleWidth="200"
 						/>
-						<BarPercentage />
-						{/* <div
-							className={styles.progressBar}
-							enableProgressBar={enableProgressBar}>
-							<span className={styles.progressValue}>25%</span>
-						</div> */}
+						<input
+							type="range"
+							min="1"
+							max="100"
+							step="1"
+							value={percentage}
+							onChange={(ev) => setPercentage(ev.target.value)}
+						/>
 					</div>
 				</div>
 			</div>
