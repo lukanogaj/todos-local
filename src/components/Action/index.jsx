@@ -5,7 +5,7 @@ import arrowUp from "../images/icons/arrow-up.svg";
 import ProgressBar from "../ProgressBar";
 // Div that include 4 divs (Todays tasks list, todays task with information how many tasks has been done , add new task div, and greeting of support)
 const Action = () => {
-	const [percentage, setPercentage] = useState(10);
+	const [percentage, setPercentage] = useState(75);
 	return (
 		<div className={styles.action}>
 			{/* Today's tasks */}
@@ -43,16 +43,8 @@ const Action = () => {
 					</div>
 					<div className={styles.circularProgressContainer}>
 						<ProgressBar
-							percentage={percentage}
-							circleWidth="200"
-						/>
-						<input
-							type="range"
-							min="1"
-							max="100"
-							step="1"
-							value={percentage}
-							onChange={(ev) => setPercentage(ev.target.value)}
+						// percentage={percentage}
+						// circleWidth="200"
 						/>
 					</div>
 				</div>
