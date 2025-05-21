@@ -2,13 +2,13 @@
 	display: flex;
 	justify-content: space-between;
 	width: 100%;
-	background-color: blue;
 	font-family: "Lato", sans-serif;
 	// background-color: #181818;
 
 	.taskContainer {
 		display: flex;
 		flex-direction: column;
+		justify-content: space-between;
 		width: 50%;
 		.taskTable {
 			display: flex;
@@ -16,13 +16,13 @@
 			padding: 1rem;
 			flex-direction: column;
 			width: 100%;
-			background-color: yellow;
+			background-color: #e2e2e2;
+			margin-bottom: 1rem;
 			.tasks {
 				display: flex;
 				align-items: center;
 				font-size: 1.6rem;
 				width: 100%;
-				background-color: red;
 			}
 		}
 		.taskHeading {
@@ -42,16 +42,14 @@
 			padding: 3rem 0rem 3rem 1rem;
 			align-items: center;
 			background-color: #252525;
-			background-color: green;
 			border-radius: 2rem;
 			.taskCounterHeading {
 				display: flex;
 				flex-direction: column;
 				width: 50%;
-				// padding: 2rem 0 2rem 0;
+				color: #fff;
 				align-items: center;
-				// justify-content: space-evenly;
-				background-color: blue;
+
 				& > h2 {
 					padding-bottom: 1rem;
 					font-size: 2.5rem;
@@ -71,7 +69,6 @@
 			flex-direction: column;
 			align-items: center;
 			width: 50%;
-			// background-color: yellow;
 			align-content: center;
 		}
 	}
@@ -89,7 +86,6 @@
 
 			font-family: "Lato", sans-serif;
 			color: #ffffff;
-			// background-color: green;
 		}
 	}
 
@@ -97,5 +93,7 @@
 		display: flex;
 		width: 50%;
 		background-color: blue;
+		margin-left: 1rem;
+		border-radius: 2rem;
 	}
 }
