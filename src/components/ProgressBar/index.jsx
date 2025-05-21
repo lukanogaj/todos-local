@@ -1,28 +1,15 @@
-import React, { useEffect, useState } from "react";
-import { CircularProgressbar } from "react-circular-progressbar";
-import "react-circular-progressbar/dist/styles.css";
+import styles from "./index.module.scss";
 
-function ProgressBar() {
-	const [percentage, setPercentage] = useState(0);
-
-	useEffect(() => {
-		setTimeout(() => {
-			if (percentage < 25) {
-				setPercentage(percentage + 1);
-			}
-		}, 50);
-	}, [percentage]);
+const ProgressBar = () => {
+	// const [percentage, setPercentage] = useState(0);
 
 	return (
-		<div className="app">
-			<div style={{ width: 150, marginLeft: 70 }}>
-				<CircularProgressbar
-					value={percentage}
-					text={`${percentage}%`}
-				/>
+		<div className={styles.progressBar}>
+			<div className={styles.circularProgress}>
+				{/* <div className={styles.progressValue}></div> */}
 			</div>
 		</div>
 	);
-}
+};
 
 export default ProgressBar;
