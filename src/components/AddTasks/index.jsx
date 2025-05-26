@@ -1,12 +1,12 @@
 import styles from "./index.module.scss";
-import youAreAwesome from "../images/download (1).jpeg";
+import youAreAwesome from "../images/youawesome.png";
 
 const AddTasks = () => {
 	return (
 		<div className={styles.addTasks}>
 			<div className={styles.addTask}>
-				<h2>+</h2>
-				<div>
+				<h1>+</h1>
+				<div className={styles.taskHead}>
 					<h2>Add a new task</h2>
 				</div>
 			</div>
@@ -18,7 +18,10 @@ const AddTasks = () => {
 					/>
 				</div>
 
-				<h3>You're doing awesome</h3>
+				<h2>
+					You're Doing <br />
+					<strong>Awesome!</strong>
+				</h2>
 			</div>
 		</div>
 	);
