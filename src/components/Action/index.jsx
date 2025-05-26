@@ -3,6 +3,7 @@ import { useState } from "react";
 import data from "../data";
 import arrowUp from "../images/icons/arrow-up.svg";
 import ProgressBar from "../ProgressBar";
+import AddTasks from "../AddTasks";
 // Div that include 4 divs (Todays tasks list, todays task with information how many tasks has been done , add new task div, and greeting of support)
 const Action = () => {
 	return (
@@ -47,18 +48,7 @@ const Action = () => {
 			</div>
 			<div className={styles.taskCounter}></div>
 			{/* Add new task and greeting  */}
-			<div className={styles.addTasks}>
-				<div className={styles.addTask}>
-					{" "}
-					<div>
-						<h2>+</h2>
-						<div>
-							<h2>Add a new task</h2>
-						</div>
-					</div>
-				</div>
-				<div className={styles.greeting}></div>
-			</div>
+			<AddTasks />
 		</div>
 	);
 };
