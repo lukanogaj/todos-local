@@ -32,9 +32,11 @@ const UpcomingTasks = () => {
 	};
 	return (
 		<div className={styles.upcomingTasks}>
-			<header className="App-header">
+			<header className={styles.upcomingTasksHeader}>
 				<h1>Upcoming Tasks</h1>
-				<div className="todo-input">
+			</header>
+			<div className={styles.tasksContainer}>
+				<div className="todoInput">
 					<input
 						type="text"
 						placeholder="Add a new task"
@@ -43,7 +45,7 @@ const UpcomingTasks = () => {
 					/>
 					<button onClick={handleAddTodo}>Add</button>
 				</div>
-				<ul className="todo-list">
+				<ul className="todoList">
 					{todos.map((todo, index) => (
 						<li key={index}>
 							{todo}
@@ -51,7 +53,7 @@ const UpcomingTasks = () => {
 						</li>
 					))}
 				</ul>
-			</header>
+			</div>
 		</div>
 	);
 };
