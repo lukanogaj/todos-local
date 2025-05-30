@@ -19,7 +19,9 @@ const AddTasks = () => {
 	return (
 		<div className={styles.addTasks}>
 			<div className={styles.addTask}>
-				<h1 onClick={setTask}> {task ? <AddNewTaskHandler /> : ""}+</h1>
+				<h1 onClick={setTask}>
+					<span>{task ? <AddNewTaskHandler /> : null}+</span>
+				</h1>
 				{/* <AddNewTaskHandler /> */}
 				<div className={styles.taskHead}>
 					<h2 onClick={setTask}>Add a new task</h2>
