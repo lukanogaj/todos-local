@@ -1,6 +1,8 @@
 import styles from "./index.module.scss";
 import { useState } from "react";
+// import AddNewTaskHandler from "../AddNewTaskHandler";
 import youAreAwesome from "../images/youawesome.png";
+import AddNewTaskHandler from "../AddNewTaskHandler";
 
 const AddTasks = () => {
 	const [task, setTasks] = useState(false);
@@ -18,6 +20,7 @@ const AddTasks = () => {
 		<div className={styles.addTasks}>
 			<div className={styles.addTask}>
 				<h1 onClick={setNewTasks}>+</h1>
+				<AddNewTaskHandler />
 				<div className={styles.taskHead}>
 					<h2 onClick={setTask}>Add a new task</h2>
 				</div>
