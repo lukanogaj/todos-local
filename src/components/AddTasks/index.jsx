@@ -6,21 +6,21 @@ import AddNewTaskHandler from "../AddNewTaskHandler";
 
 const AddTasks = () => {
 	const [task, setTasks] = useState(false);
-	const [newTask, setNewTask] = useState(false);
+	// const [newTask, setNewTask] = useState(false);
 	const setTask = () => {
 		setTasks(!task);
 		console.log("Clicked");
 	};
 
-	const setNewTasks = () => {
-		setNewTask(!newTask);
-		console.log("SubmitTasks");
-	};
+	// const setNewTasks = () => {
+	// 	setTask(!task);
+	// 	console.log("SubmitTasks");
+	// };
 	return (
 		<div className={styles.addTasks}>
 			<div className={styles.addTask}>
-				<h1 onClick={setNewTasks}>+</h1>
-				<AddNewTaskHandler />
+				<h1 onClick={setTask}> {task ? <AddNewTaskHandler /> : ""}+</h1>
+				{/* <AddNewTaskHandler /> */}
 				<div className={styles.taskHead}>
 					<h2 onClick={setTask}>Add a new task</h2>
 				</div>
