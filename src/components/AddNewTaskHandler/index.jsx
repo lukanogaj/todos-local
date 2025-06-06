@@ -1,5 +1,5 @@
 import styles from "./index.module.scss";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const AddNewTaskHandler = () => {
 	const [todos, setTodos] = useState([]);
@@ -18,7 +18,7 @@ const AddNewTaskHandler = () => {
 		localStorage.setItem("todos", JSON.stringify(todos));
 	}, [todos]);
 
-	const handleAddTodo = () => {
+	const handleAddTodo = (e) => {
 		if (task.trim() !== "") {
 			setTodos([...todos, task]);
 			setTask("");
