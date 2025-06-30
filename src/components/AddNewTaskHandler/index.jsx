@@ -1,7 +1,7 @@
 import styles from "./index.module.scss";
 import { useState, useEffect, useRef } from "react";
 
-const AddNewTaskHandler = () => {
+const AddNewTaskHandler = ({}) => {
 	const [todos, setTodos] = useState([]);
 	const [task, setTask] = useState("");
 
@@ -18,12 +18,13 @@ const AddNewTaskHandler = () => {
 		localStorage.setItem("todos", JSON.stringify(todos));
 	}, [todos]);
 
-	const handleAddTodo = (e) => {
-		if (task.trim() !== "") {
-			setTodos([...todos, task]);
-			setTask("");
-		}
-	};
+	// const handleAddTodo = (e) => {
+	// 	e.preventDefault();
+	// 	if (task.trim() !== "") {
+	// 		setTodos([...todos, task]);
+	// 		setTask("");
+	// 	}
+	// };
 
 	const handleRemoveTodo = (index) => {
 		const newTodos = todos.filter((_, i) => i !== index);
@@ -41,14 +42,14 @@ const AddNewTaskHandler = () => {
 				/>
 				<button onClick={handleAddTodo}>Add</button>
 			</div>
-			<ul className="todoList">
+			{/* <ul className="todoList">
 				{todos.map((todo, index) => (
 					<li key={index}>
 						{todo}
 						<button onClick={() => handleRemoveTodo(index)}>Remove</button>
 					</li>
 				))}
-			</ul>
+			</ul> */}
 		</div>
 	);
 };
