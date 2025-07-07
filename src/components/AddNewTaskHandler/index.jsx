@@ -1,55 +1,87 @@
 import styles from "./index.module.scss";
 import { useState, useEffect, useRef } from "react";
 
-const AddNewTaskHandler = ({}) => {
-	const [todos, setTodos] = useState([]);
-	const [task, setTask] = useState("");
+const AddNewTaskHandler = () => {
+	const [data, setData] = useState([]);
+	const [input, setInput] = useState("");
 
-	// Load TODOs from local storage on app startup
+	// Use Effect to storage items in the local storage
 	useEffect(() => {
-		const storedTodos = JSON.parse(localStorage.getItem("todos"));
-		if (storedTodos) {
-			setTodos(storedTodos);
+		const savedTodoData = localStorage.getItem("todo-data");
+
+		if (savedTodoData) {
+			setData(JSON.parse(savedTodoData));
+		} else {
+			localStorage.setItem("todo-data", JSON.stringify([]));
 		}
 	}, []);
 
-	// Update local storage whenever TODOs change
-	useEffect(() => {
-		localStorage.setItem("todos", JSON.stringify(todos));
-	}, [todos]);
-
-	// const handleAddTodo = (e) => {
-	// 	e.preventDefault();
-	// 	if (task.trim() !== "") {
-	// 		setTodos([...todos, task]);
-	// 		setTask("");
-	// 	}
-	// };
-
-	const handleRemoveTodo = (index) => {
-		const newTodos = todos.filter((_, i) => i !== index);
-		setTodos(newTodos);
+	// Add new todo into local storage onClick
+	const addNewTodo = () => {
+		const newTodo = { text: input, complete: false };
+		const updatedTodoList = [...data, newTodo];
+		setData(updatedTodoList);
+		localStorage.setItem("todo-data", JSON.stringify(updatedTodoList));
+		setInput("");
 	};
 
+	// Complete todo click
+	const completeTodo = (index) => {
+		const updatedList = [...data];
+		updatedList[index].complete = !updatedList[index].complete;
+		setData(updatedList);
+		localStorage.setItem("todo-data", JSON.stringify(updatedList));
+	};
+
+	// Delete and remove to-do from the local storage
+	const deleteTodo = (index) => {
+		const updatedData = [...data];
+		updatedData.splice(index, 1);
+		setData(updatedData);
+		localStorage.setItem("todo-data", JSON.stringify(updatedData));
+	};
 	return (
 		<div className={styles.tasksContainer}>
 			<div className={styles.todoInput}>
 				<input
+					value={input}
 					type="text"
 					placeholder="Add a new task"
-					value={task}
-					onChange={(e) => setTask(e.target.value)}
+					onChange={(e) => {
+						setInput(e.target.value);
+					}}
 				/>
-				<button onClick={handleAddTodo}>Add</button>
+				<button
+					onClick={() => {
+						addNewTodo();
+					}}>
+					Add
+				</button>
+				<div>
+					<div>
+						<ol>
+							{data.map((todo, index) => (
+								<div
+									key={index}
+									style={{ display: "flex" }}>
+									<p>{todo.text}</p>
+									<button
+										onClick={() => {
+											deleteTodo(index);
+										}}>
+										🗑️
+									</button>
+									<button
+										onClick={() => completeTodo(index)}
+										key={index}>
+										{todo.complete ? "✅" : "🟥"}
+									</button>
+								</div>
+							))}
+						</ol>
+					</div>
+				</div>
 			</div>
-			{/* <ul className="todoList">
-				{todos.map((todo, index) => (
-					<li key={index}>
-						{todo}
-						<button onClick={() => handleRemoveTodo(index)}>Remove</button>
-					</li>
-				))}
-			</ul> */}
 		</div>
 	);
 };

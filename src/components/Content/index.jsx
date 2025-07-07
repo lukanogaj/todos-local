@@ -1,28 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./index.module.scss";
 import Header from "../Header";
 import Action from "../Action";
+// import AddTasks from "../AddTasks";
 import UpcomingTasks from "../UpcomingTasks";
 
 const Content = () => {
-	const [todos, setTodos] = useState([]);
-	const [task, setTask] = useState("");
+	const [data, setData] = useState([]);
+	const [input, setInput] = useState("");
 
-	const handleAddTodo = (e) => {
-		e.preventDefault();
-		if (task.trim() !== "") {
-			setTodos([...todos, task]);
-			setTask("");
-		}
-	};
 	return (
 		<div className={styles.content}>
 			<Header />
 			<Action />
+			{/* <AddTasks /> */}
 			<UpcomingTasks
-				handleAddTodo={handleAddTodo}
-				todos={todos}
-				task={task}
+				data={data}
+				input={input}
 			/>
 		</div>
 	);

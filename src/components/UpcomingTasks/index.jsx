@@ -1,8 +1,8 @@
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
+// import { useEffect } from "react";
 import styles from "./index.module.scss";
 
-const UpcomingTasks = ({ todos, handleRemoveTodo }) => {
+const UpcomingTasks = ({ data, input, deleteTodo }) => {
 	return (
 		<div className={styles.upcomingTasks}>
 			<header className={styles.upcomingTasksHeader}>
@@ -11,11 +11,12 @@ const UpcomingTasks = ({ todos, handleRemoveTodo }) => {
 			<div className={styles.tasksContainer}>
 				<ul
 					className="todoList"
-					handleRemoveTodo={handleRemoveTodo}>
-					{todos.map((todo, index) => (
+					// handleRemoveTodo={handleRemoveTodo}
+				>
+					{data.map((todo, index) => (
 						<li key={index}>
 							{todo}
-							<button onClick={() => handleRemoveTodo(index)}>Remove</button>
+							<button onClick={() => deleteTodo(index)}>Remove</button>
 						</li>
 					))}
 				</ul>
