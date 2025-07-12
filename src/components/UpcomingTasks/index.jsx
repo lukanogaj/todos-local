@@ -6,7 +6,10 @@ const UpcomingTasks = () => {
 	return (
 		<div className={styles.upcomingTasks}>
 			<header className={styles.upcomingTasksHeader}>
-				<h1>Upcoming Tasks</h1>
+				<h1 className={styles.headerH1}>Upcoming Tasks</h1>
+				<span>
+					See ALl <span></span>
+				</span>
 			</header>
 			<div className={styles.tasksContainer}>
 				{/* <ul
