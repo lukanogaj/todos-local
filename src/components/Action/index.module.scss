@@ -1,5 +1,8 @@
 .action {
-	display: flex;
+	display: grid;
+	grid-gap: 1rem;
+	grid-template-rows: auto;
+	grid-template-columns: 1fr 1fr;
 	justify-content: space-between;
 	width: 100%;
 	font-family: "Lato", sans-serif;
@@ -10,13 +13,13 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		width: 60%;
+		// width: 60%;
 		.taskTable {
 			display: flex;
 			border-radius: 2rem;
 			padding: 1rem;
 			flex-direction: column;
-			width: 100%;
+			width: 100s%;
 			background-color: #e2e2e2;
 			margin-bottom: 1rem;
 			.tasks {

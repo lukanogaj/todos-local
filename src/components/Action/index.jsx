@@ -49,6 +49,7 @@ const Action = () => {
 			</div>
 			{/* Add new task and greeting  */}
 			<AddTasks />
+			<UpcomingTasks />
 		</div>
 	);
 };

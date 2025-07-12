@@ -3,7 +3,7 @@ import styles from "./index.module.scss";
 import Header from "../Header";
 import Action from "../Action";
 // import AddTasks from "../AddTasks";
-import UpcomingTasks from "../UpcomingTasks";
+// import UpcomingTasks from "../UpcomingTasks";
 
 const Content = () => {
 	const [data, setData] = useState([]);
@@ -14,10 +14,10 @@ const Content = () => {
 			<Header />
 			<Action />
 			{/* <AddTasks /> */}
-			<UpcomingTasks
+			{/* <UpcomingTasks
 				data={data}
 				input={input}
-			/>
+			/> */}
 		</div>
 	);
 };

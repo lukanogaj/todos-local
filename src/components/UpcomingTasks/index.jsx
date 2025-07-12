@@ -2,14 +2,14 @@ import { useState, useEffect } from "react";
 // import { useEffect } from "react";
 import styles from "./index.module.scss";
 
-const UpcomingTasks = ({ data, input, deleteTodo }) => {
+const UpcomingTasks = () => {
 	return (
 		<div className={styles.upcomingTasks}>
 			<header className={styles.upcomingTasksHeader}>
 				<h1>Upcoming Tasks</h1>
 			</header>
 			<div className={styles.tasksContainer}>
-				<ul
+				{/* <ul
 					className="todoList"
 					// handleRemoveTodo={handleRemoveTodo}
 				>
@@ -19,7 +19,7 @@ const UpcomingTasks = ({ data, input, deleteTodo }) => {
 							<button onClick={() => deleteTodo(index)}>Remove</button>
 						</li>
 					))}
-				</ul>
+				</ul> */}
 			</div>
 		</div>
 	);
