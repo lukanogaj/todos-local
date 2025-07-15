@@ -1,26 +1,26 @@
 .action {
-	display: grid;
-	grid-gap: 2rem;
-	grid-template-rows: auto;
-	grid-template-columns: 1.5fr 1fr;
-	justify-content: space-between;
+	display: flex;
+	// grid-template-columns: 1fr 1fr;
+	gap: 2rem;
+	flex-wrap: wrap;
+	flex-grow: 2;
+	// justify-content: space-between;
 	width: 100%;
 	font-family: "Lato", sans-serif;
 	// background-color: #181818;
-	// flex-direction: ;
 
 	.taskContainer {
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		gap: 1rem;
-		// width: 100%;
+		gap: 3rem;
+		width: 60%;
 		.taskTable {
 			display: flex;
 			border-radius: 2rem;
 			padding: 1rem;
 			flex-direction: column;
-			width: 100s%;
+			width: 100%;
 			background-color: #e2e2e2;
 			margin-bottom: 1rem;
 			.tasks {
@@ -86,7 +86,7 @@
 
 		.taskText {
 			display: 50%;
-			width: 50%;
+			// width: 50%;
 			text-align: center;
 
 			font-family: "Lato", sans-serif;
@@ -94,10 +94,9 @@
 		}
 	}
 
-	.addTasks {
+	.addTasksContainer {
 		display: flex;
-		width: 45%;
-		background-color: blue;
+		width: 30%;
 		margin-left: 1rem;
 		border-radius: 2rem;
 	}

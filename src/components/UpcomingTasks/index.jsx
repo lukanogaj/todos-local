@@ -5,12 +5,10 @@ import styles from "./index.module.scss";
 const UpcomingTasks = () => {
 	return (
 		<div className={styles.upcomingTasks}>
-			<header className={styles.upcomingTasksHeader}>
+			<div className={styles.upcomingTasksHeader}>
 				<h1 className={styles.headerH1}>Upcoming Tasks</h1>
-				<span>
-					See ALl <span></span>
-				</span>
-			</header>
+				<span>See all</span>
+			</div>
 			<div className={styles.tasksContainer}>
 				{/* <ul
 					className="todoList"

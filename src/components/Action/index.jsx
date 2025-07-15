@@ -48,7 +48,11 @@ const Action = () => {
 				</div>
 			</div>
 			{/* Add new task and greeting  */}
-			<AddTasks />
+			<div className={styles.addTasksContainer}>
+				{" "}
+				<AddTasks />
+			</div>
+			{/* <AddTasks /> */}
 			<UpcomingTasks />
 		</div>
 	);
