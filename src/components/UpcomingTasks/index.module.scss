@@ -12,10 +12,24 @@
 	.upcomingTasksHeader {
 		display: flex;
 		justify-content: space-between;
+		align-items: center;
 		width: 100%;
-		background-color: red;
-		// background-color: #181818;
+		background-color: #181818;
 		color: #fff;
+
+		.arrow {
+			display: flex;
+			align-items: center;
+			justify-content: space-evenly;
+			width: 14%;
+			.spanArrow {
+				font-size: 2rem;
+			}
+			img {
+				width: 40px;
+				transform: rotate(45deg);
+			}
+		}
 	}
 	.tasksContainer {
 		display: flex;
@@ -29,10 +43,6 @@
 		list-style: none;
 		padding: 0;
 	}
-}
-
-span {
-	// font-size: 2rem;
 }
 
 /*
