@@ -16,19 +16,7 @@ const UpcomingTasks = () => {
 					/>
 				</div>
 			</div>
-			<div className={styles.tasksContainer}>
-				{/* <ul
-					className="todoList"
-					// handleRemoveTodo={handleRemoveTodo}
-				>
-					{data.map((todo, index) => (
-						<li key={index}>
-							{todo}
-							<button onClick={() => deleteTodo(index)}>Remove</button>
-						</li>
-					))}
-				</ul> */}
-			</div>
+			<div className={styles.tasksContainer}></div>
 		</div>
 	);
 };

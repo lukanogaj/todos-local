@@ -50,10 +50,10 @@ const Action = () => {
 			{/* Add new task and greeting  */}
 			<div className={styles.addTasksContainer}>
 				{" "}
-				<AddTasks />
+				<AddTasks addNewTodo={addNewTodo} />
 			</div>
 			{/* <AddTasks /> */}
-			<UpcomingTasks />
+			<UpcomingTasks data={data} />
 		</div>
 	);
 };

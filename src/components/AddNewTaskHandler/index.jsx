@@ -2,7 +2,7 @@ import styles from "./index.module.scss";
 import { useState, useEffect, useRef } from "react";
 
 const AddNewTaskHandler = () => {
-	const [data, setData] = useState([]);
+	const [dataValue, setDataValue] = useState([]);
 	const [input, setInput] = useState("");
 
 	// Use Effect to storage items in the local storage
@@ -10,7 +10,7 @@ const AddNewTaskHandler = () => {
 		const savedTodoData = localStorage.getItem("todo-data");
 
 		if (savedTodoData) {
-			setData(JSON.parse(savedTodoData));
+			setDataValue(JSON.parse(savedTodoData));
 		} else {
 			localStorage.setItem("todo-data", JSON.stringify([]));
 		}
@@ -19,25 +19,25 @@ const AddNewTaskHandler = () => {
 	// Add new todo into local storage onClick
 	const addNewTodo = () => {
 		const newTodo = { text: input, complete: false };
-		const updatedTodoList = [...data, newTodo];
-		setData(updatedTodoList);
+		const updatedTodoList = [...dataValue, newTodo];
+		setDataValue(updatedTodoList);
 		localStorage.setItem("todo-data", JSON.stringify(updatedTodoList));
 		setInput("");
 	};
 
 	// Complete todo click
 	const completeTodo = (index) => {
-		const updatedList = [...data];
+		const updatedList = [...dataValue];
 		updatedList[index].complete = !updatedList[index].complete;
-		setData(updatedList);
+		setDataValue(updatedList);
 		localStorage.setItem("todo-data", JSON.stringify(updatedList));
 	};
 
 	// Delete and remove to-do from the local storage
 	const deleteTodo = (index) => {
-		const updatedData = [...data];
+		const updatedData = [...dataValue];
 		updatedData.splice(index, 1);
-		setData(updatedData);
+		setDataValue(updatedData);
 		localStorage.setItem("todo-data", JSON.stringify(updatedData));
 	};
 	return (
@@ -60,7 +60,7 @@ const AddNewTaskHandler = () => {
 				<div>
 					<div>
 						<ol>
-							{data.map((todo, index) => (
+							{dataValue.map((todo, index) => (
 								<div
 									key={index}
 									style={{ display: "flex" }}>

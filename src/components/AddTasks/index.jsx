@@ -1,7 +1,7 @@
 import styles from "./index.module.scss";
 import { useState, useRef } from "react";
-import youAreAwesome from "../images/youawesome.png";
 import AddNewTaskHandler from "../AddNewTaskHandler";
+import youAreAwesome from "../images/youarewesome.png";
 
 const AddTasks = () => {
 	const [task, setTasks] = useState(false);
