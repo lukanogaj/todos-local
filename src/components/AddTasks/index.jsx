@@ -1,7 +1,6 @@
-import styles from "./index.module.scss";
-import { useState, useRef } from "react";
-import AddNewTaskHandler from "../AddNewTaskHandler";
-import youAreAwesome from "../images/youarewesome.png";
+import styles from './index.module.scss';
+import { useState, useRef } from 'react';
+import youAreAwesome from '../images/youarewesome.png';
 
 const AddTasks = () => {
 	const [task, setTasks] = useState(false);
@@ -10,7 +9,8 @@ const AddTasks = () => {
 		<div className={styles.addTasks}>
 			<div className={styles.addTask}>
 				<h1>
-					<span onClick={setTasks}>{task ? <AddNewTaskHandler /> : ""}+</span>
+					{/* <span onClick={setTasks}>{task ? <AddNewTaskHandler /> : null}+</span> */}
+					<span>+</span>
 				</h1>
 				{/* <AddNewTaskHandler /> */}
 				<div className={styles.taskHead}>
@@ -21,7 +21,7 @@ const AddTasks = () => {
 				<div className={styles.awesomeImg}>
 					<img
 						src={youAreAwesome}
-						alt=""
+						alt=''
 					/>
 				</div>
 
