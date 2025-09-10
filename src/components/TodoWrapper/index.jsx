@@ -5,8 +5,10 @@ import { v4 as uuidv4 } from 'uuid';
 import arrowUp from '../images/icons/arrow-up.svg';
 import ProgressBar from '../ProgressBar';
 import AddTasks from '../AddTasks';
-import ToDoForm from '../TodoForm';
+// import ToDoForm from '../TodoForm';
 import UpcomingTasks from '../UpcomingTasks';
+import AddTaskInput from '../Inputs/AddTaskInput';
+
 // Div that include 4 divs (Todays tasks list, todays task with information how many tasks has been done , add new task div, and greeting of support)
 const TodoWrapper = () => {
 	// const today = new Date();
@@ -61,10 +63,11 @@ const TodoWrapper = () => {
 							key={todoItem.id}
 							className={styles.tasks}>
 							<div className={styles.taskIcon}>
-								<img
+								<AddTaskInput />
+								{/* <img
 									src={todoItem.checkIcon}
 									alt='box'
-								/>
+								/> */}
 							</div>
 							<div
 								className={styles.taskText}
