@@ -2,11 +2,14 @@ import styles from './index.module.scss';
 
 const AddTaskInput = () => {
 	return (
-		<div className={styles.checkboxWrapper}>
-			<label>
-				<input type='checkbox' />
-				<span className={styles.checkbox}></span>
-			</label>
+		<div className={styles.addTaskWrapper}>
+			<input
+				type='text'
+				className={styles.inputAddTask}
+				placeholder='Add Task'
+				required=''
+			/>
+			{/* <label>Add Task</label> */}
 		</div>
 	);
 };

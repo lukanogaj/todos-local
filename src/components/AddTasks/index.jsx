@@ -2,6 +2,7 @@ import styles from './index.module.scss';
 import { useState, useRef } from 'react';
 import youAreAwesome from '../images/youarewesome.png';
 import { v4 as uuidv4 } from 'uuid';
+import AddTaskInput from '../Inputs/AddTaskInput';
 
 const AddTasks = () => {
 	const [task, setTasks] = useState(false);
@@ -45,6 +46,7 @@ const AddTasks = () => {
 				<h1>
 					{/* <span onClick={setTasks}>{task ? <AddNewTaskHandler /> : null}+</span> */}
 					<span>+</span>
+					<AddTaskInput />
 				</h1>
 				{/* <AddNewTaskHandler /> */}
 				<div className={styles.taskHead}>

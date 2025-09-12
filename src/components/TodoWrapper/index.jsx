@@ -8,6 +8,7 @@ import AddTasks from '../AddTasks';
 // import ToDoForm from '../TodoForm';
 import UpcomingTasks from '../UpcomingTasks';
 import AddTaskInput from '../Inputs/AddTaskInput';
+import TodayTaskInput from '../Inputs/TodayTaskInput';
 
 // Div that include 4 divs (Todays tasks list, todays task with information how many tasks has been done , add new task div, and greeting of support)
 const TodoWrapper = () => {
@@ -63,7 +64,7 @@ const TodoWrapper = () => {
 							key={todoItem.id}
 							className={styles.tasks}>
 							<div className={styles.taskIcon}>
-								<AddTaskInput />
+								<TodayTaskInput />
 								{/* <img
 									src={todoItem.checkIcon}
 									alt='box'
