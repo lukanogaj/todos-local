@@ -46,8 +46,13 @@ const AddTasks = () => {
 		<div className={styles.addTasks}>
 			<div className={styles.addTask}>
 				{/* <span onClick={setTasks}>{task ? <AddNewTaskHandler /> : null}+</span> */}
-				<button className={styles.btnAddTask}>&#43;</button>
-				<AddTaskInput />
+				<button
+					onClick={() => setIsFormVisible(!isFormVisible)}
+					className={styles.btnAddTask}>
+					{isFormVisible ? 'Hide Form 𝗫' : 'Add New Task'}
+				</button>
+				{isFormVisible && <AddTaskInput />}
+				{/* <AddTaskInput /> */}
 
 				{/* <AddNewTaskHandler /> */}
 				<div className={styles.taskHead}>
