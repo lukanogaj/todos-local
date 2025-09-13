@@ -38,6 +38,12 @@
 
 // Add new Task css
 .addTaskWrapper {
-	width: 90%;
-	background-color: #333;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	.inputAddTask {
+		width: 90%;
+		padding: 1rem;
+		border-radius: 1rem;
+	}
 }

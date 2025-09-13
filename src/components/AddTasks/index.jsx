@@ -2,11 +2,13 @@ import styles from './index.module.scss';
 import { useState, useRef } from 'react';
 import youAreAwesome from '../images/youarewesome.png';
 import { v4 as uuidv4 } from 'uuid';
-import AddTaskInput from '../Inputs/AddTaskInput';
+import AddTaskInput from '../inputs/AddTaskInput';
 
 const AddTasks = () => {
 	const [task, setTasks] = useState(false);
 	const [todos, setTodos] = useState([]);
+	// State for make addTask input visible
+	const [isFormVisible, setIsFormVisible] = useState(false);
 	const addTodo = (todo) => {
 		setTodos([
 			...todos,
@@ -43,11 +45,10 @@ const AddTasks = () => {
 	return (
 		<div className={styles.addTasks}>
 			<div className={styles.addTask}>
-				<h1>
-					{/* <span onClick={setTasks}>{task ? <AddNewTaskHandler /> : null}+</span> */}
-					<span>+</span>
-					<AddTaskInput />
-				</h1>
+				{/* <span onClick={setTasks}>{task ? <AddNewTaskHandler /> : null}+</span> */}
+				<button className={styles.btnAddTask}>&#43;</button>
+				<AddTaskInput />
+
 				{/* <AddNewTaskHandler /> */}
 				<div className={styles.taskHead}>
 					<h2>Add a new task</h2>
