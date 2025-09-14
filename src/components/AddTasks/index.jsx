@@ -9,37 +9,16 @@ const AddTasks = () => {
 	const [todos, setTodos] = useState([]);
 	// State for make addTask input visible
 	const [isFormVisible, setIsFormVisible] = useState(false);
-	const addTodo = (todo) => {
-		setTodos([
-			...todos,
-			{ id: uuidv4(), task: todo, completed: false, isEditing: false },
-		]);
-	};
+	// State for form data and create the object with the data for task
+	const [formData, setFormData] = useState('');
+	const [name, setName] = useState([]);
 
-	const deleteTodo = (id) => setTodos(todos.filter((todo) => todo.id !== id));
-
-	const toggleComplete = (id) => {
-		setTodos(
-			todos.map((todo) =>
-				todo.id === id ? { ...todo, completed: !todo.completed } : todo
-			)
-		);
-	};
-
-	const editTodo = (id) => {
-		setTodos(
-			todos.map((todo) =>
-				todo.id === id ? { ...todo, isEditing: !todo.isEditing } : todo
-			)
-		);
-	};
-
-	const editTask = (task, id) => {
-		setTodos(
-			todos.map((todo) =>
-				todo.id === id ? { ...todo, task, isEditing: !todo.isEditing } : todo
-			)
-		);
+	const handleChange = (e) => {
+		console.log(e.target.value);
+		setFormData({
+			...formData,
+			[e.target.name]: e.target.value,
+		});
 	};
 
 	return (
@@ -49,14 +28,19 @@ const AddTasks = () => {
 				<button
 					onClick={() => setIsFormVisible(!isFormVisible)}
 					className={styles.btnAddTask}>
-					{isFormVisible ? 'Hide Form 𝗫' : 'Add New Task'}
+					{isFormVisible ? 'Hide Form 𝗫' : 'Add New Task ✚'}
 				</button>
-				{isFormVisible && <AddTaskInput />}
+				{isFormVisible && (
+					<AddTaskInput
+						name={name}
+						onChange={handleChange}
+					/>
+				)}
 				{/* <AddTaskInput /> */}
 
 				{/* <AddNewTaskHandler /> */}
 				<div className={styles.taskHead}>
-					<h2>Add a new task</h2>
+					<h2>Add a new task </h2>
 				</div>
 			</div>
 			<div className={styles.greeting}>
@@ -77,3 +61,36 @@ const AddTasks = () => {
 };
 
 export default AddTasks;
+
+// const addTodo = (todo) => {
+// 	setTodos([
+// 		...todos,
+// 		{ id: uuidv4(), task: todo, completed: false, isEditing: false },
+// 	]);
+// };
+
+// const deleteTodo = (id) => setTodos(todos.filter((todo) => todo.id !== id));
+
+// const toggleComplete = (id) => {
+// 	setTodos(
+// 		todos.map((todo) =>
+// 			todo.id === id ? { ...todo, completed: !todo.completed } : todo
+// 		)
+// 	);
+// };
+
+// const editTodo = (id) => {
+// 	setTodos(
+// 		todos.map((todo) =>
+// 			todo.id === id ? { ...todo, isEditing: !todo.isEditing } : todo
+// 		)
+// 	);
+// };
+
+// const editTask = (task, id) => {
+// 	setTodos(
+// 		todos.map((todo) =>
+// 			todo.id === id ? { ...todo, task, isEditing: !todo.isEditing } : todo
+// 		)
+// 	);
+// };

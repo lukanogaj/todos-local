@@ -22,14 +22,16 @@
 		border-radius: 2rem;
 		margin-bottom: 1rem;
 		& > button {
+			width: 40%;
 			display: block;
-			color: #fff;
-			width: 30%;
+			padding: 0.5rem;
+			color: #000;
 			text-align: center;
-			font-size: 3rem;
-			border-radius: inherit;
+			font-size: 1rem;
+			border: none;
+			border-radius: 1rem;
 			cursor: pointer;
-			background-color: #181818;
+			background-color: #e2e2e2;
 			// padding: 0.1rem;
 		}
 
