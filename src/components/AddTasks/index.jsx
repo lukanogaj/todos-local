@@ -1,5 +1,5 @@
 import styles from './index.module.scss';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import youAreAwesome from '../images/youarewesome.png';
 import { v4 as uuidv4 } from 'uuid';
 import AddTaskInput from '../inputs/AddTaskInput';
@@ -12,6 +12,15 @@ const AddTasks = () => {
 	// State for form data and create the object with the data for task
 	const [formData, setFormData] = useState('');
 	const [name, setName] = useState([]);
+	// Create the useState and useEffect to store tasks in local storage
+	const [notes, setNotes] = useState(() => {
+		const notes = JSON.parse(localStorage.getItem('notes'));
+		return notes || [];
+	});
+
+	useEffect(() => {
+		localStorage.setItem('notes', JSON.stringify(notes));
+	}, [notes]);
 
 	const handleChange = (e) => {
 		console.log(e.target.value);
@@ -28,19 +37,22 @@ const AddTasks = () => {
 				<button
 					onClick={() => setIsFormVisible(!isFormVisible)}
 					className={styles.btnAddTask}>
-					{isFormVisible ? 'Hide Form 𝗫' : 'Add New Task ✚'}
+					{isFormVisible ? 'Hide Form 𝗫' : 'Add New Task '}
 				</button>
 				{isFormVisible && (
 					<AddTaskInput
 						name={name}
 						onChange={handleChange}
+						notes={notes}
+						setNotes={setNotes}
 					/>
 				)}
 				{/* <AddTaskInput /> */}
 
 				{/* <AddNewTaskHandler /> */}
-				<div className={styles.taskHead}>
-					<h2>Add a new task </h2>
+				<div className={styles.addTaskBtn}>
+					<button className={styles.btnAddToDo}>➕</button>
+					<h2>Add New Task</h2>
 				</div>
 			</div>
 			<div className={styles.greeting}>
