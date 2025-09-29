@@ -5,22 +5,34 @@ import { v4 as uuidv4 } from 'uuid';
 import AddTaskInput from '../inputs/AddTaskInput';
 
 const AddTasks = () => {
-	const [task, setTasks] = useState(false);
+	const [task, setTask] = useState();
+	const [tasks, setTasks] = useState(
+		JSON.parse(localStorage.getItem('tasks') || '[]')
+	);
 	const [todos, setTodos] = useState([]);
 	// State for make addTask input visible
 	const [isFormVisible, setIsFormVisible] = useState(false);
 	// State for form data and create the object with the data for task
 	const [formData, setFormData] = useState('');
 	const [name, setName] = useState([]);
-	// Create the useState and useEffect to store tasks in local storage
-	const [notes, setNotes] = useState(() => {
-		const notes = JSON.parse(localStorage.getItem('notes'));
-		return notes || [];
-	});
+
+	// Create the functio to submit data into local storage
+	const handleSubmit = () => {
+		setTasks([...tasks, task]);
+		// Clear input
+		setTask('');
+	};
 
 	useEffect(() => {
-		localStorage.setItem('notes', JSON.stringify(notes));
-	}, [notes]);
+		return () => {
+			localStorage.setItem('tasks', JSON.stringify(tasks));
+		};
+	});
+
+	// Create the useState and useEffect to store tasks in local storage
+	////////////////////////////////////////////////////////////
+
+	// ///////////////////////////////////////
 
 	const handleChange = (e) => {
 		console.log(e.target.value);
@@ -43,15 +55,19 @@ const AddTasks = () => {
 					<AddTaskInput
 						name={name}
 						onChange={handleChange}
-						notes={notes}
-						setNotes={setNotes}
+						tasks={tasks}
+						// setNotes={setNotes}
 					/>
 				)}
 				{/* <AddTaskInput /> */}
 
 				{/* <AddNewTaskHandler /> */}
 				<div className={styles.addTaskBtn}>
-					<button className={styles.btnAddToDo}>➕</button>
+					<button
+						onClick={handleSubmit}
+						className={styles.btnAddToDo}>
+						+
+					</button>
 					<h2>Add New Task</h2>
 				</div>
 			</div>
@@ -73,36 +89,3 @@ const AddTasks = () => {
 };
 
 export default AddTasks;
-
-// const addTodo = (todo) => {
-// 	setTodos([
-// 		...todos,
-// 		{ id: uuidv4(), task: todo, completed: false, isEditing: false },
-// 	]);
-// };
-
-// const deleteTodo = (id) => setTodos(todos.filter((todo) => todo.id !== id));
-
-// const toggleComplete = (id) => {
-// 	setTodos(
-// 		todos.map((todo) =>
-// 			todo.id === id ? { ...todo, completed: !todo.completed } : todo
-// 		)
-// 	);
-// };
-
-// const editTodo = (id) => {
-// 	setTodos(
-// 		todos.map((todo) =>
-// 			todo.id === id ? { ...todo, isEditing: !todo.isEditing } : todo
-// 		)
-// 	);
-// };
-
-// const editTask = (task, id) => {
-// 	setTodos(
-// 		todos.map((todo) =>
-// 			todo.id === id ? { ...todo, task, isEditing: !todo.isEditing } : todo
-// 		)
-// 	);
-// };
