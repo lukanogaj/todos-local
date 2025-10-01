@@ -5,41 +5,39 @@ import { v4 as uuidv4 } from 'uuid';
 import AddTaskInput from '../inputs/AddTaskInput';
 
 const AddTasks = () => {
-	const [task, setTask] = useState();
-	const [tasks, setTasks] = useState(
-		JSON.parse(localStorage.getItem('tasks') || '[]')
-	);
-	const [todos, setTodos] = useState([]);
+	const [task, setTask] = useState('');
+	const [tasks, setTasks] = useState([]);
 	// State for make addTask input visible
 	const [isFormVisible, setIsFormVisible] = useState(false);
-	// State for form data and create the object with the data for task
-	const [formData, setFormData] = useState('');
-	const [name, setName] = useState([]);
-
-	// Create the functio to submit data into local storage
-	const handleSubmit = () => {
-		setTasks([...tasks, task]);
-		// Clear input
-		setTask('');
-	};
+	// Restore item from local storage
 
 	useEffect(() => {
-		return () => {
-			localStorage.setItem('tasks', JSON.stringify(tasks));
-		};
+		if (localStorage.getItem('localTasks')) {
+			const storedList = JSON.parse(localStorage.getItem('localTasks'));
+			setTasks(storedList);
+		}
 	});
 
-	// Create the useState and useEffect to store tasks in local storage
-	////////////////////////////////////////////////////////////
+	// Add task to local storage
+	const addTask = () => {
+		if (task) {
+			const newTask = { id: new Date().getTime().toString(), title: task };
+			setTasks([...tasks, newTask]);
+			localStorage.setItem('localTasks', JSON.stringify([...tasks, newTask]));
+			setTask('');
+			console.log(newTask);
+		}
+	};
 
-	// ///////////////////////////////////////
-
-	const handleChange = (e) => {
-		console.log(e.target.value);
-		setFormData({
-			...formData,
-			[e.target.name]: e.target.value,
-		});
+	const handleDelete = () => {
+		const deleted = tasks.filter((t) => t.id !== task.id);
+		setTasks(deleted);
+		localStorage.setItem('localTasks', JSON.stringify(deleted));
+	};
+	// Just for purpose removing tasks from local storage
+	const handleClear = () => {
+		setTasks([]);
+		localStorage.removeItem('localTasks');
 	};
 
 	return (
@@ -53,9 +51,9 @@ const AddTasks = () => {
 				</button>
 				{isFormVisible && (
 					<AddTaskInput
-						name={name}
-						onChange={handleChange}
 						tasks={tasks}
+						task={task}
+						setTask={setTask}
 						// setNotes={setNotes}
 					/>
 				)}
@@ -64,11 +62,16 @@ const AddTasks = () => {
 				{/* <AddNewTaskHandler /> */}
 				<div className={styles.addTaskBtn}>
 					<button
-						onClick={handleSubmit}
+						onClick={addTask}
 						className={styles.btnAddToDo}>
 						+
 					</button>
 					<h2>Add New Task</h2>
+					<button
+						onClick={handleClear}
+						className={styles.btnRemoveTask}>
+						❌
+					</button>
 				</div>
 			</div>
 			<div className={styles.greeting}>
@@ -89,3 +92,16 @@ const AddTasks = () => {
 };
 
 export default AddTasks;
+
+// Create the useState and useEffect to store tasks in local storage
+////////////////////////////////////////////////////////////
+
+// ///////////////////////////////////////
+
+// const handleChange = (e) => {
+// 	console.log(e.target.value);
+// 	setTasks({
+// 		...tasks,
+// 		[e.target]: e.target.value,
+// 	});
+// };
