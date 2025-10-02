@@ -10,7 +10,7 @@ import UpcomingTasks from '../UpcomingTasks';
 import TodayTaskInput from '../inputs/TodayTaskInput';
 
 // Div that include 4 divs (Todays tasks list, todays task with information how many tasks has been done , add new task div, and greeting of support)
-const TodoWrapper = () => {
+const TodoWrapper = ({ tasks, task }) => {
 	// const today = new Date();
 	// console.log(today);
 	const [todos, setTodos] = useState([]);
@@ -64,10 +64,6 @@ const TodoWrapper = () => {
 							className={styles.tasks}>
 							<div className={styles.taskIcon}>
 								<TodayTaskInput />
-								{/* <img
-									src={todoItem.checkIcon}
-									alt='box'
-								/> */}
 							</div>
 							<div
 								className={styles.taskText}
@@ -93,7 +89,11 @@ const TodoWrapper = () => {
 				<AddTasks />
 			</div>
 			{/* <AddTasks /> */}
-			<UpcomingTasks data={data} />
+			<UpcomingTasks
+				data={data}
+				task={task}
+				tasks={tasks}
+			/>
 		</div>
 	);
 };

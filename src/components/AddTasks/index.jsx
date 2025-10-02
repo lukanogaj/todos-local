@@ -5,38 +5,40 @@ import { v4 as uuidv4 } from 'uuid';
 import AddTaskInput from '../inputs/AddTaskInput';
 
 const AddTasks = () => {
+	const [todos, setTodos] = useState([]);
 	const [task, setTask] = useState('');
-	const [tasks, setTasks] = useState([]);
 	// State for make addTask input visible
 	const [isFormVisible, setIsFormVisible] = useState(false);
-	// Restore item from local storage
 
+	// Load TODOs from local storage on app startup
 	useEffect(() => {
-		if (localStorage.getItem('localTasks')) {
-			const storedList = JSON.parse(localStorage.getItem('localTasks'));
-			setTasks(storedList);
+		const storedTodos = JSON.parse(localStorage.getItem('todos'));
+		if (storedTodos) {
+			setTodos(storedTodos);
 		}
-	});
+	}, []);
 
-	// Add task to local storage
-	const addTask = () => {
-		if (task) {
-			const newTask = { id: new Date().getTime().toString(), title: task };
-			setTasks([...tasks, newTask]);
-			localStorage.setItem('localTasks', JSON.stringify([...tasks, newTask]));
+	// Update local storage whenever TODOs change
+	useEffect(() => {
+		localStorage.setItem('todos', JSON.stringify(todos));
+	}, [todos]);
+
+	// FUnction to ad todos into local storage onCLick
+
+	const handleAddTodo = () => {
+		if (task.trim() !== '') {
+			setTodos([...todos, task]);
 			setTask('');
-			console.log(newTask);
 		}
 	};
 
-	const handleDelete = () => {
-		const deleted = tasks.filter((t) => t.id !== task.id);
-		setTasks(deleted);
-		localStorage.setItem('localTasks', JSON.stringify(deleted));
+	const handleRemoveTodo = (index) => {
+		const newTodos = todos.filter((_, i) => i !== index);
+		setTodos(newTodos);
 	};
 	// Just for purpose removing tasks from local storage
 	const handleClear = () => {
-		setTasks([]);
+		setTask([]);
 		localStorage.removeItem('localTasks');
 	};
 
@@ -51,7 +53,7 @@ const AddTasks = () => {
 				</button>
 				{isFormVisible && (
 					<AddTaskInput
-						tasks={tasks}
+						// tasks={tasks}
 						task={task}
 						setTask={setTask}
 						// setNotes={setNotes}
@@ -62,10 +64,18 @@ const AddTasks = () => {
 				{/* <AddNewTaskHandler /> */}
 				<div className={styles.addTaskBtn}>
 					<button
-						onClick={addTask}
+						onClick={handleAddTodo}
 						className={styles.btnAddToDo}>
 						+
 					</button>
+					<ul className={styles.todoList}>
+						{todos.map((todo, index) => (
+							<li key={index}>
+								{todo}
+								<button onClick={() => handleRemoveTodo(index)}>Remove</button>
+							</li>
+						))}
+					</ul>
 					<h2>Add New Task</h2>
 					<button
 						onClick={handleClear}

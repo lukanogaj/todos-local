@@ -9,7 +9,7 @@ const AddTaskInput = ({ setTask, task, required = false }) => {
 				className={styles.inputAddTask}
 				placeholder='Add Task'
 				value={task}
-				onChange={(e) => console.log(setTask(e.target.value))}
+				onChange={(e) => setTask(e.target.value)}
 				required={required}
 			/>
 			{/* <label>Add Task</label> */}
