@@ -32,15 +32,11 @@ const AddTasks = () => {
 		}
 	};
 
-	const handleRemoveTodo = (index) => {
-		const newTodos = todos.filter((_, i) => i !== index);
-		setTodos(newTodos);
-	};
+	// const handleRemoveTodo = (index) => {
+	// 	const newTodos = todos.filter((_, i) => i !== index);
+	// 	setTodos(newTodos);
+	// };
 	// Just for purpose removing tasks from local storage
-	const handleClear = () => {
-		setTask([]);
-		localStorage.removeItem('localTasks');
-	};
 
 	return (
 		<div className={styles.addTasks}>
@@ -68,20 +64,15 @@ const AddTasks = () => {
 						className={styles.btnAddToDo}>
 						+
 					</button>
-					<ul className={styles.todoList}>
+					{/* <ul className={styles.todoList}>
 						{todos.map((todo, index) => (
 							<li key={index}>
 								{todo}
 								<button onClick={() => handleRemoveTodo(index)}>Remove</button>
 							</li>
 						))}
-					</ul>
+					</ul> */}
 					<h2>Add New Task</h2>
-					<button
-						onClick={handleClear}
-						className={styles.btnRemoveTask}>
-						❌
-					</button>
 				</div>
 			</div>
 			<div className={styles.greeting}>
@@ -102,16 +93,3 @@ const AddTasks = () => {
 };
 
 export default AddTasks;
-
-// Create the useState and useEffect to store tasks in local storage
-////////////////////////////////////////////////////////////
-
-// ///////////////////////////////////////
-
-// const handleChange = (e) => {
-// 	console.log(e.target.value);
-// 	setTasks({
-// 		...tasks,
-// 		[e.target]: e.target.value,
-// 	});
-// };

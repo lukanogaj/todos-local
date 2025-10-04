@@ -35,22 +35,6 @@
 			// padding: 0.1rem;
 		}
 
-		.todoList {
-			list-style: none;
-			padding: 0;
-		}
-
-		.todoList li {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			background-color: #333;
-			padding: 10px;
-			border-radius: 4px;
-			margin-bottom: 10px;
-			min-width: 200px; /* Set a minimum width for the list items */
-		}
-
 		.addTaskBtn {
 			display: flex;
 			flex-direction: column;

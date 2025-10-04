@@ -10,41 +10,13 @@ import UpcomingTasks from '../UpcomingTasks';
 import TodayTaskInput from '../inputs/TodayTaskInput';
 
 // Div that include 4 divs (Todays tasks list, todays task with information how many tasks has been done , add new task div, and greeting of support)
-const TodoWrapper = ({ tasks, task }) => {
-	// const today = new Date();
-	// console.log(today);
+const TodoWrapper = ({ handleAddTodo }) => {
 	const [todos, setTodos] = useState([]);
-	const addTodo = (todo) => {
-		setTodos([
-			...todos,
-			{ id: uuidv4(), task: todo, completed: false, isEditing: false },
-		]);
-	};
+	const [task, setTask] = useState('');
 
-	const deleteTodo = (id) => setTodos(todos.filter((todo) => todo.id !== id));
-
-	const toggleComplete = (id) => {
-		setTodos(
-			todos.map((todo) =>
-				todo.id === id ? { ...todo, completed: !todo.completed } : todo
-			)
-		);
-	};
-
-	const editTodo = (id) => {
-		setTodos(
-			todos.map((todo) =>
-				todo.id === id ? { ...todo, isEditing: !todo.isEditing } : todo
-			)
-		);
-	};
-
-	const editTask = (task, id) => {
-		setTodos(
-			todos.map((todo) =>
-				todo.id === id ? { ...todo, task, isEditing: !todo.isEditing } : todo
-			)
-		);
+	const handleRemoveTodo = (index) => {
+		const newTodos = todos.filter((_, i) => i !== index);
+		setTodos(newTodos);
 	};
 	return (
 		<div className={styles.action}>
@@ -92,7 +64,10 @@ const TodoWrapper = ({ tasks, task }) => {
 			<UpcomingTasks
 				data={data}
 				task={task}
-				tasks={tasks}
+				// tasks={tasks}
+				handleAddTodo={handleAddTodo}
+				handleRemoveTodo={handleRemoveTodo}
+				todos={todos}
 			/>
 		</div>
 	);
