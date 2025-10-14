@@ -2,7 +2,7 @@ import styles from './index.module.scss';
 import { useState, useRef, useEffect } from 'react';
 import youAreAwesome from '../images/youarewesome.png';
 import { v4 as uuidv4 } from 'uuid';
-import AddTaskInput from '../inputs/AddTaskInput';
+import AddTaskInput from '../Inputs/AddTaskInput';
 
 const AddTasks = () => {
 	const [todos, setTodos] = useState([]);
@@ -55,8 +55,6 @@ const AddTasks = () => {
 						// setNotes={setNotes}
 					/>
 				)}
-				{/* <AddTaskInput /> */}
-
 				{/* <AddNewTaskHandler /> */}
 				<div className={styles.addTaskBtn}>
 					<button
@@ -64,14 +62,7 @@ const AddTasks = () => {
 						className={styles.btnAddToDo}>
 						+
 					</button>
-					{/* <ul className={styles.todoList}>
-						{todos.map((todo, index) => (
-							<li key={index}>
-								{todo}
-								<button onClick={() => handleRemoveTodo(index)}>Remove</button>
-							</li>
-						))}
-					</ul> */}
+
 					<h2>Add New Task</h2>
 				</div>
 			</div>
