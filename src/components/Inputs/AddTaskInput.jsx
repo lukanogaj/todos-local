@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styles from './index.module.scss';
 
-const AddTaskInput = ({ setTask, task, required = false }) => {
+const AddTaskInput = ({ setTask, task, handleAddTodo, required = false }) => {
 	return (
 		<div className={styles.addTaskWrapper}>
 			<input
@@ -12,6 +12,15 @@ const AddTaskInput = ({ setTask, task, required = false }) => {
 				onChange={(e) => setTask(e.target.value)}
 				required={required}
 			/>
+			<div className={styles.addTaskBtn}>
+				<button
+					onClick={handleAddTodo}
+					className={styles.btnAddToDo}>
+					Add Task
+				</button>
+
+				{/* <h2>Add New Task</h2> */}
+			</div>
 			{/* <label>Add Task</label> */}
 		</div>
 	);

@@ -16,7 +16,7 @@ const TodoTestComponent = () => {
 	// Update local storage whenever TODOs change
 	useEffect(() => {
 		localStorage.setItem('todos', JSON.stringify(todos));
-	}, [todos]);
+	}, [todos.length]);
 
 	const handleAddTodo = () => {
 		if (task.trim() !== '') {

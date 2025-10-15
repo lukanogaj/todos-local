@@ -32,12 +32,6 @@ const AddTasks = () => {
 		}
 	};
 
-	// const handleRemoveTodo = (index) => {
-	// 	const newTodos = todos.filter((_, i) => i !== index);
-	// 	setTodos(newTodos);
-	// };
-	// Just for purpose removing tasks from local storage
-
 	return (
 		<div className={styles.addTasks}>
 			<div className={styles.addTask}>
@@ -52,19 +46,10 @@ const AddTasks = () => {
 						// tasks={tasks}
 						task={task}
 						setTask={setTask}
+						handleAddTodo={handleAddTodo}
 						// setNotes={setNotes}
 					/>
 				)}
-				{/* <AddNewTaskHandler /> */}
-				<div className={styles.addTaskBtn}>
-					<button
-						onClick={handleAddTodo}
-						className={styles.btnAddToDo}>
-						+
-					</button>
-
-					<h2>Add New Task</h2>
-				</div>
 			</div>
 			<div className={styles.greeting}>
 				<div className={styles.awesomeImg}>

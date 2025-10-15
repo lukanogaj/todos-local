@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import styles from './index.module.scss';
 import arrowUp from '../images/arrow.png';
 // import UpcomingTasksList from '../UpcomingTasksList';
-import TestComponent from '../TestTodoComponent';
+import TestTodoComponent from '../TestTodoComponent';
 
 const UpcomingTasks = ({ handleAddTodo, handleRemoveTodo }) => {
 	const [todos, setTodos] = useState([]);
@@ -12,13 +12,13 @@ const UpcomingTasks = ({ handleAddTodo, handleRemoveTodo }) => {
 		localStorage.clear();
 	};
 
-	// Function to load  todos from local storage
+	// // Function to load  todos from local storage
 	useEffect(() => {
 		const storedTodos = JSON.parse(localStorage.getItem('todos'));
 		if (storedTodos) {
 			setTodos(storedTodos);
 		}
-	});
+	}, [todos.length]);
 
 	return (
 		<div className={styles.upcomingTasks}>
@@ -32,7 +32,7 @@ const UpcomingTasks = ({ handleAddTodo, handleRemoveTodo }) => {
 					/>
 				</div>
 			</div>
-			<TestComponent />
+			<TestTodoComponent handleAddTodo={handleAddTodo} />
 			<div className={styles.tasksContainer}>
 				<ul className='todo-list'>
 					{todos.map((todo, index) => (
@@ -42,7 +42,6 @@ const UpcomingTasks = ({ handleAddTodo, handleRemoveTodo }) => {
 						</li>
 					))}
 				</ul>
-				<button onClick={clearLocalStorage}>Clear Locale</button>
 			</div>
 		</div>
 	);
