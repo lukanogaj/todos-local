@@ -5,17 +5,16 @@ const TodoTestComponent = () => {
 	const [todos, setTodos] = useState([]);
 	const [task, setTask] = useState('');
 
+	// // Update local storage whenever TODOs change
+	// useEffect(() => {
+	// 	localStorage.setItem('todos', JSON.stringify(todos));
+	// }, [todos.length]);
 	// Load TODOs from local storage on app startup
 	useEffect(() => {
 		const storedTodos = JSON.parse(localStorage.getItem('todos'));
 		if (storedTodos) {
 			setTodos(storedTodos);
 		}
-	}, []);
-
-	// Update local storage whenever TODOs change
-	useEffect(() => {
-		localStorage.setItem('todos', JSON.stringify(todos));
 	}, [todos.length]);
 
 	const handleAddTodo = () => {
@@ -40,8 +39,9 @@ const TodoTestComponent = () => {
 						placeholder='Add a new task'
 						value={task}
 						onChange={(e) => setTask(e.target.value)}
+						handleAddTodo={handleAddTodo}
 					/>
-					<button onClick={handleAddTodo}>Add</button>
+					<button>Add</button>
 				</div>
 				<ul className='todo-list'>
 					{todos.map((todo, index) => (

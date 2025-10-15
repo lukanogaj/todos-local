@@ -18,10 +18,7 @@ const AddTaskInput = ({ setTask, task, handleAddTodo, required = false }) => {
 					className={styles.btnAddToDo}>
 					Add Task
 				</button>
-
-				{/* <h2>Add New Task</h2> */}
 			</div>
-			{/* <label>Add Task</label> */}
 		</div>
 	);
 };

@@ -5,20 +5,16 @@ import arrowUp from '../images/arrow.png';
 // import UpcomingTasksList from '../UpcomingTasksList';
 import TestTodoComponent from '../TestTodoComponent';
 
-const UpcomingTasks = ({ handleAddTodo, handleRemoveTodo }) => {
+const UpcomingTasks = ({ handleRemoveTodo }) => {
 	const [todos, setTodos] = useState([]);
-	// Function to clear local storage
-	const clearLocalStorage = () => {
-		localStorage.clear();
-	};
 
-	// // Function to load  todos from local storage
+	// Load TODOs from local storage on app startup
 	useEffect(() => {
 		const storedTodos = JSON.parse(localStorage.getItem('todos'));
 		if (storedTodos) {
 			setTodos(storedTodos);
 		}
-	}, [todos.length]);
+	}, []);
 
 	return (
 		<div className={styles.upcomingTasks}>
@@ -32,7 +28,7 @@ const UpcomingTasks = ({ handleAddTodo, handleRemoveTodo }) => {
 					/>
 				</div>
 			</div>
-			<TestTodoComponent handleAddTodo={handleAddTodo} />
+			<TestTodoComponent />
 			<div className={styles.tasksContainer}>
 				<ul className='todo-list'>
 					{todos.map((todo, index) => (
