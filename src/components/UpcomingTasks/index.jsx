@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 // import { useEffect } from "react";
 import styles from './index.module.scss';
 import arrowUp from '../images/arrow.png';
-import UpcomingTasksList from '../UpcomingTasksList';
+// import UpcomingTasksList from '../UpcomingTasksList';
+import TestComponent from '../TestTodoComponent';
 
 const UpcomingTasks = ({ handleAddTodo, handleRemoveTodo }) => {
 	const [todos, setTodos] = useState([]);
@@ -31,6 +32,7 @@ const UpcomingTasks = ({ handleAddTodo, handleRemoveTodo }) => {
 					/>
 				</div>
 			</div>
+			<TestComponent />
 			<div className={styles.tasksContainer}>
 				<ul className='todo-list'>
 					{todos.map((todo, index) => (
