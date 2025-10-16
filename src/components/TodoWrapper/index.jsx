@@ -10,10 +10,16 @@ import UpcomingTasks from '../UpcomingTasks';
 import TodayTaskInput from '../Inputs/TodayTaskInput';
 
 // Div that include 4 divs (Todays tasks list, todays task with information how many tasks has been done , add new task div, and greeting of support)
-const TodoWrapper = ({ handleAddTodo }) => {
+const TodoWrapper = () => {
 	const [todos, setTodos] = useState([]);
 	const [task, setTask] = useState('');
 
+	const handleAddTodo = () => {
+		if (task.trim() !== '') {
+			setTodos([...todos, task]);
+			setTask('');
+		}
+	};
 	const handleRemoveTodo = (index) => {
 		const newTodos = todos.filter((_, i) => i !== index);
 		setTodos(newTodos);
@@ -58,16 +64,17 @@ const TodoWrapper = ({ handleAddTodo }) => {
 			{/* Add new task and greeting  */}
 			<div className={styles.addTasksContainer}>
 				{' '}
-				<AddTasks />
+				<AddTasks handleAddTodo={handleAddTodo} />
 			</div>
 			{/* <AddTasks /> */}
 			<UpcomingTasks
 				data={data}
 				task={task}
+				todos={todos}
+				setTodos={setTodos}
 				// tasks={tasks}
 				handleAddTodo={handleAddTodo}
 				handleRemoveTodo={handleRemoveTodo}
-				todos={todos}
 			/>
 		</div>
 	);

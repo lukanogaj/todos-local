@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import styles from './index.module.scss';
 import arrowUp from '../images/arrow.png';
 // import UpcomingTasksList from '../UpcomingTasksList';
-import TestTodoComponent from '../TestTodoComponent';
+// import TestTodoComponent from '../TestTodoComponent';
 
 const UpcomingTasks = ({ handleRemoveTodo }) => {
 	const [todos, setTodos] = useState([]);
@@ -28,7 +28,7 @@ const UpcomingTasks = ({ handleRemoveTodo }) => {
 					/>
 				</div>
 			</div>
-			<TestTodoComponent />
+			{/* <TestTodoComponent /> */}
 			<div className={styles.tasksContainer}>
 				<ul className='todo-list'>
 					{todos.map((todo, index) => (

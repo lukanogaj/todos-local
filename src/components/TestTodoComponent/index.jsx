@@ -39,7 +39,7 @@ const TodoTestComponent = () => {
 						placeholder='Add a new task'
 						value={task}
 						onChange={(e) => setTask(e.target.value)}
-						handleAddTodo={handleAddTodo}
+						// handleAddTodo={handleAddTodo}
 					/>
 					<button>Add</button>
 				</div>
