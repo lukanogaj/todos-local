@@ -4,8 +4,7 @@ import youAreAwesome from '../images/youarewesome.png';
 import { v4 as uuidv4 } from 'uuid';
 import AddTaskInput from '../Inputs/AddTaskInput';
 
-const AddTasks = () => {
-	const [todos, setTodos] = useState([]);
+const AddTasks = ({ todos, setTodos }) => {
 	const [task, setTask] = useState('');
 	// State for make addTask input visible
 	const [isFormVisible, setIsFormVisible] = useState(false);

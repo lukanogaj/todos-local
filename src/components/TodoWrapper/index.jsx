@@ -14,16 +14,10 @@ const TodoWrapper = () => {
 	const [todos, setTodos] = useState([]);
 	const [task, setTask] = useState('');
 
-	const handleAddTodo = () => {
-		if (task.trim() !== '') {
-			setTodos([...todos, task]);
-			setTask('');
-		}
-	};
-	const handleRemoveTodo = (index) => {
-		const newTodos = todos.filter((_, i) => i !== index);
-		setTodos(newTodos);
-	};
+	// const handleRemoveTodo = (index) => {
+	// 	const newTodos = todos.filter((_, i) => i !== index);
+	// 	setTodos(newTodos);
+	// };
 	return (
 		<div className={styles.action}>
 			{/* Today's tasks */}
@@ -64,7 +58,10 @@ const TodoWrapper = () => {
 			{/* Add new task and greeting  */}
 			<div className={styles.addTasksContainer}>
 				{' '}
-				<AddTasks handleAddTodo={handleAddTodo} />
+				<AddTasks
+					todos={todos}
+					setTodos={setTodos}
+				/>
 			</div>
 			{/* <AddTasks /> */}
 			<UpcomingTasks
@@ -73,8 +70,7 @@ const TodoWrapper = () => {
 				todos={todos}
 				setTodos={setTodos}
 				// tasks={tasks}
-				handleAddTodo={handleAddTodo}
-				handleRemoveTodo={handleRemoveTodo}
+				// handleRemoveTodo={handleRemoveTodo}
 			/>
 		</div>
 	);
