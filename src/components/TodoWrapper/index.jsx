@@ -13,10 +13,6 @@ const TodoWrapper = () => {
 	const [todos, setTodos] = useState([]);
 	const [task, setTask] = useState('');
 
-	// const handleRemoveTodo = (index) => {
-	// 	const newTodos = todos.filter((_, i) => i !== index);
-	// 	setTodos(newTodos);
-	// };
 	return (
 		<div className={styles.action}>
 			{/* Today's tasks */}

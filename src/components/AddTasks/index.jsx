@@ -1,7 +1,7 @@
 import styles from './index.module.scss';
 import { useState, useRef, useEffect } from 'react';
 import youAreAwesome from '../images/youarewesome.png';
-import AddNewTodo from '../Inputs/AddNewTodo';
+import AddNewTodo from '../Inputs/AddNewTodo/AddNewTodo';
 
 const AddTasks = () => {
 	// State for make addTask input visible

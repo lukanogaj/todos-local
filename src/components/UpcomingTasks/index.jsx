@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import AddNewTodo from '../Inputs/AddNewTodo';
 import styles from './index.module.scss';
 import arrowUp from '../images/arrow.png';
 

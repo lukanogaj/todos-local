@@ -1,0 +1,27 @@
+.addNewTodoContainer {
+	max-width: 600px;
+	// margin: 0 auto;
+	// padding: 20px;
+	background-color: #f9f9f9;
+	// border-radius: 8pxs;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	background-color: inherit;
+	border: none;
+
+	.todoForm {
+		background-color: inherit;
+		// border: none;
+		// background-color: red;
+		.inputTodo {
+			padding: 10px;
+			width: 100%;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+		}
+	}
+
+	.btnAddTodo {
+		// background-color: yellow;s
+		border: none;
+	}
+}

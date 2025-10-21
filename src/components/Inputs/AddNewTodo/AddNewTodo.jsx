@@ -15,19 +15,34 @@ const AddNewTodo = () => {
 		if (inputValue.trim() !== '') {
 			setTodos([...todos, inputValue]);
 			setInputValue('');
+			localStorage.setItem('todos', JSON.stringify([...todos, inputValue]));
 		}
 	};
 
+	useEffect(() => {
+		const storedTodos = localStorage.getItem('todos');
+		if (storedTodos) {
+			setTodos(JSON.parse(storedTodos));
+		}
+	}, []);
+
 	return (
-		<div>
-			<form onSubmit={handleSubmit}>
+		<div className={styles.addNewTodoContainer}>
+			<form
+				onSubmit={handleSubmit}
+				className={styles.todoForm}>
 				<input
 					type='text'
+					className={styles.inputTodo}
 					value={inputValue}
 					onChange={handleInputChange}
 					placeholder='Enter a new task'
 				/>
-				<button type='submit'>Add Task</button>
+				<button
+					type='submit'
+					className={styles.btnAddTodo}>
+					Add Task
+				</button>
 			</form>
 			<ul>
 				{todos.map((todo, index) => (
