@@ -1,35 +1,30 @@
 // Add new Task css
-.addTaskWrapper {
+
+.todoInput {
 	display: flex;
-	justify-content: space-around;
-	width: 100%;
-	font-family: 'Lato', sans-serif;
-	.inputAddTask {
-		width: 70%;
-		padding: 1rem;
-		border-radius: 1rem;
+	align-items: center;
+	margin-bottom: 20px;
+
+	input {
+		padding: 10px;
+		font-size: 16px;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		margin-right: 10px;
+		flex: 1;
 	}
 
-	.addTaskBtn {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		color: #fff;
-		width: 30%;
-		& > button {
-			width: 60%;
-			flex: column;
-			text-align: center;
-			align-items: center;
-
-			background: #fff;
-			border: 1px;
-			border-radius: 1rem;
-			font-size: 0.9rem;
-		}
+	button {
+		padding: 10px 20px;
+		font-size: 16px;
+		background-color: red;
+		color: white;
+		border: none;
+		border-radius: 4px;
+		cursor: pointer;
 	}
 }
-
+///// Today Task container
 .checkboxWrapper *,
 .checkboxWrapper *::before,
 .checkboxWrapper *::after {

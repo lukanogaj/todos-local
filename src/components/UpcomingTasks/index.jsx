@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from 'react';
-// import { useEffect } from "react";
+import AddNewTodo from '../Inputs/AddNewTodo';
 import styles from './index.module.scss';
 import arrowUp from '../images/arrow.png';
-// import UpcomingTasksList from '../UpcomingTasksList';
-// import TestTodoComponent from '../TestTodoComponent';
 
 const UpcomingTasks = () => {
 	const [todos, setTodos] = useState([]);
 	const [task, setTask] = useState('');
-
 	// Load TODOs from local storage on app startup
 	useEffect(() => {
 		const storedTodos = JSON.parse(localStorage.getItem('todos'));
@@ -28,6 +25,11 @@ const UpcomingTasks = () => {
 			setTask('');
 		}
 	};
+
+	// Clear local storage
+	// const clearLocale = () => {
+	// 	localStorage.clear();
+	// };
 
 	const handleRemoveTodo = (index) => {
 		const newTodos = todos.filter((_, i) => i !== index);
@@ -49,15 +51,12 @@ const UpcomingTasks = () => {
 			<div className={styles.tasksContainer}>
 				<header className='App-header'>
 					<h1>TODO App</h1>
-					<div className='todo-input'>
-						<input
-							type='text'
-							placeholder='Add a new task'
-							value={task}
-							onChange={(e) => setTask(e.target.value)}
-						/>
-						<button onClick={handleAddTodo}>Add</button>
-					</div>
+					{/* <AddNewTodo
+						task={task}
+						setTask={setTask}
+						handleAddTodo={handleAddTodo}
+					/> */}
+
 					<ul className='todo-list'>
 						{todos.map((todo, index) => (
 							<li key={index}>

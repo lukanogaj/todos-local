@@ -2,43 +2,22 @@ import styles from './index.module.scss';
 import { useState, useRef, useEffect } from 'react';
 import youAreAwesome from '../images/youarewesome.png';
 import { v4 as uuidv4 } from 'uuid';
-import AddTaskInput from '../Inputs/AddTaskInput';
+import AddNewTodo from '../Inputs/AddNewTodo';
 
-const AddTasks = ({ todos, setTodos }) => {
-	const [task, setTask] = useState('');
+const AddTasks = ({ todos, setTodos, task, setTask }) => {
 	// State for make addTask input visible
 	const [isFormVisible, setIsFormVisible] = useState(false);
-
-	// Update local storage whenever TODOs change
-	useEffect(() => {
-		localStorage.setItem('todos', JSON.stringify(todos));
-	}, [todos]);
-
-	// FUnction to ad todos into local storage onCLick
-
-	const handleAddTodo = () => {
-		if (task.trim() !== '') {
-			setTodos([...todos, task]);
-			setTask('');
-		}
-	};
 
 	return (
 		<div className={styles.addTasks}>
 			<div className={styles.addTask}>
-				{/* <span onClick={setTasks}>{task ? <AddNewTaskHandler /> : null}+</span> */}
+				<span onClick={setTask}>{task ? <AddNewTodo /> : null}+</span>
 				<button
 					onClick={() => setIsFormVisible(!isFormVisible)}
 					className={styles.btnAddTask}>
-					{isFormVisible ? 'Hide Form 𝗫' : 'Add New Task '}
+					{isFormVisible ? 'Hide Form ' : 'Add New Task '}
 				</button>
-				{isFormVisible && (
-					<AddTaskInput
-						task={task}
-						setTask={setTask}
-						handleAddTodo={handleAddTodo}
-					/>
-				)}
+				{isFormVisible && 'hello'}
 			</div>
 			<div className={styles.greeting}>
 				<div className={styles.awesomeImg}>
