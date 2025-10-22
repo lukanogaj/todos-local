@@ -1,7 +1,8 @@
+import styles from './index.module.scss';
+
 const HideFormBtn = () => {
 	return (
-		<div>
-			<span>X</span>
+		<div className={styles.hideFormBtn}>
 			<h2>Hide Form</h2>
 		</div>
 	);

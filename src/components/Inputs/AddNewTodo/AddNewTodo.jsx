@@ -56,7 +56,7 @@ const AddNewTodo = () => {
 					<button
 						type='submit'
 						className={styles.btnAddTodo}>
-						Add New Task
+						Add New Todo
 					</button>
 				</form>
 			)}
