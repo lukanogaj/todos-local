@@ -6,7 +6,12 @@ const UpcomingTasks = () => {
 	const [todos, setTodos] = useState([]);
 	const [task, setTask] = useState('');
 	// Load TODOs from local storage on app startup
-
+	useEffect(() => {
+		const storedTodos = localStorage.getItem('todos');
+		if (storedTodos) {
+			setTodos(JSON.parse(storedTodos));
+		}
+	}, []);
 	return (
 		<div className={styles.upcomingTasks}>
 			<div className={styles.upcomingTasksHeader}>
@@ -20,19 +25,12 @@ const UpcomingTasks = () => {
 				</div>
 			</div>
 			{/* Upcoming Todos items  */}
-			<div className={styles.tasksContainer}>
-				<header className='App-header'>
-					<h1>TODO App</h1>
-
-					<ul className='todo-list'>
-						{todos.map((todo, index) => (
-							<li key={index}>
-								{todo}
-								<button>Remove</button>
-							</li>
-						))}
-					</ul>
-				</header>
+			<div className={styles.upcomingTasksContainer}>
+				<ul>
+					{todos.map((todo, index) => (
+						<li key={index}>{todo}</li>
+					))}
+				</ul>
 			</div>
 		</div>
 	);

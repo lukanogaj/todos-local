@@ -1,13 +1,13 @@
 import styles from './index.module.scss';
 import { useState, useEffect } from 'react';
-import AddNewTodoBtn from '../../buttons/addNewTodoBtn.jsx';
-import HideFormBtn from '../../buttons/hideFormBtn.jsx';
+// import AddNewTodoBtn from '../../buttons/addNewTodoBtn.jsx';
+// import HideFormBtn from '../../buttons/hideFormBtn.jsx';
 
-const AddNewTodo = () => {
+const AddNewTodo = ({ isFormVisible }) => {
 	// Todo input to submit todo item into local storage
 	const [todos, setTodos] = useState([]);
 	const [inputValue, setInputValue] = useState('');
-	const [isFormVisible, setIsFormVisible] = useState(false);
+	// const [isFormVisible, setIsFormVisible] = useState(false);
 
 	const handleInputChange = (e) => {
 		setInputValue(e.target.value);
@@ -35,32 +35,7 @@ const AddNewTodo = () => {
 
 	return (
 		<div className={styles.addNewTodoContainer}>
-			{/* <div onClick={() => setIsFormVisible(!iFos)}>+</div> */}
-			<button
-				onClick={() => setIsFormVisible(!isFormVisible)}
-				className={styles.toggleButton}>
-				{isFormVisible ? <HideFormBtn /> : <AddNewTodoBtn />}
-			</button>
-
-			{isFormVisible && (
-				<form
-					onSubmit={handleSubmit}
-					className={styles.todoForm}>
-					<input
-						type='text'
-						className={styles.inputTodo}
-						value={inputValue}
-						onChange={handleInputChange}
-						placeholder='Enter a new task'
-					/>
-					<button
-						type='submit'
-						className={styles.btnAddTodo}>
-						Add New Todo
-					</button>
-				</form>
-			)}
-			{/* <form
+			<form
 				onSubmit={handleSubmit}
 				className={styles.todoForm}>
 				<input
@@ -72,16 +47,8 @@ const AddNewTodo = () => {
 				/>
 				<button
 					type='submit'
-					className={styles.btnAddTodo}>
-					Add New Task
-				</button>
-			</form> */}
-			{/* <button onClick={() => clearLocale()}>Clear</button> */}
-			<ul>
-				{todos.map((todo, index) => (
-					<li key={index}>{todo}</li>
-				))}
-			</ul>
+					className={styles.btnAddTodo}></button>
+			</form>
 		</div>
 	);
 };
