@@ -1,0 +1,22 @@
+.addNewTodoBtn {
+	font-family: 'Lato', sans-serif;
+	width: 100%;
+	background-color: inherit;
+	border: none;
+	span {
+		background-color: inherit;
+		font-size: 2rem;
+	}
+	button {
+		background-color: inherit;
+		color: #fff;
+		border: none;
+		font-size: 1rem;
+		// font-weight: 100;
+	}
+
+	h2 {
+		font-weight: 400;
+		letter-spacing: 0.09rem;
+	}
+}
