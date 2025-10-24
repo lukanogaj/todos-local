@@ -1,0 +1,24 @@
+.todoInput {
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+	align-items: center;
+
+	// margin-bottom: 10px;
+
+	input {
+		padding: 7px;
+		font-size: 16px;
+		border: 1px solid #ccc;
+		border-radius: 6px;
+		// margin-right: 10px;
+		// flex: 1;
+	}
+	button {
+		width: 70%;
+		padding: 0.3rem;
+		border: none;
+		border-radius: 6px;
+		margin-top: 0.5rem;
+	}
+}

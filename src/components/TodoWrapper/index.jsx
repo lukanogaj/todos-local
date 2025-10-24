@@ -6,7 +6,7 @@ import arrowUp from '../images/icons/arrow-up.svg';
 import ProgressBar from '../ProgressBar';
 import AddTasks from '../AddTasks';
 import UpcomingTasks from '../UpcomingTasks';
-import TodayTaskInput from '../Inputs/TodayTaskInput/TodayTaskInput';
+import TodayTaskInput from '../Inputs/TodayTaskInput';
 
 // Div that include 4 divs (Todays tasks list, todays task with information how many tasks has been done , add new task div, and greeting of support)
 const TodoWrapper = () => {

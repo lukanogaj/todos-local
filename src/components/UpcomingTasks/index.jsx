@@ -3,15 +3,15 @@ import styles from './index.module.scss';
 import arrowUp from '../images/arrow.png';
 
 const UpcomingTasks = () => {
-	const [todos, setTodos] = useState([]);
-	const [task, setTask] = useState('');
+	// const [todos, setTodos] = useState([]);
+	// const [task, setTask] = useState('');
 	// Load TODOs from local storage on app startup
-	useEffect(() => {
-		const storedTodos = localStorage.getItem('todos');
-		if (storedTodos) {
-			setTodos(JSON.parse(storedTodos));
-		}
-	}, []);
+	// useEffect(() => {
+	// 	const storedTodos = localStorage.getItem('todos');
+	// 	if (storedTodos) {
+	// 		setTodos(JSON.parse(storedTodos));
+	// 	}
+	// }, []);
 	return (
 		<div className={styles.upcomingTasks}>
 			<div className={styles.upcomingTasksHeader}>
@@ -26,11 +26,11 @@ const UpcomingTasks = () => {
 			</div>
 			{/* Upcoming Todos items  */}
 			<div className={styles.upcomingTasksContainer}>
-				<ul>
+				{/* <ul>
 					{todos.map((todo, index) => (
 						<li key={index}>{todo}</li>
 					))}
-				</ul>
+				</ul> */}
 			</div>
 		</div>
 	);
