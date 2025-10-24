@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import styles from './index.module.scss';
 import arrowUp from '../images/arrow.png';
+// import FetchTodos from '../hooks';
 
-const UpcomingTasks = () => {
-	// const [todos, setTodos] = useState([]);
-	// const [task, setTask] = useState('');
+const UpcomingTasks = ({ todos, addedTodo, setTodos }) => {
 	// Load TODOs from local storage on app startup
-	// useEffect(() => {
-	// 	const storedTodos = localStorage.getItem('todos');
-	// 	if (storedTodos) {
-	// 		setTodos(JSON.parse(storedTodos));
-	// 	}
-	// }, []);
+	// Load TODOs from local storage on app startup
+	// Load TODOs from local storage on app startup
+	useEffect(() => {
+		const storedTodos = JSON.parse(localStorage.getItem('todos'));
+		if (storedTodos) {
+			setTodos(storedTodos);
+		}
+	}, []);
+
 	return (
 		<div className={styles.upcomingTasks}>
 			<div className={styles.upcomingTasksHeader}>
@@ -26,11 +28,11 @@ const UpcomingTasks = () => {
 			</div>
 			{/* Upcoming Todos items  */}
 			<div className={styles.upcomingTasksContainer}>
-				{/* <ul>
+				<ul>
 					{todos.map((todo, index) => (
 						<li key={index}>{todo}</li>
 					))}
-				</ul> */}
+				</ul>
 			</div>
 		</div>
 	);

@@ -6,6 +6,7 @@ const AddTasks = () => {
 	// State for make addTask input visible
 	const [todos, setTodos] = useState([]);
 	const [task, setTask] = useState('');
+	const [addedTodo, setAddedTodo] = useState(false);
 
 	// Show the form when click
 
@@ -40,17 +41,11 @@ const AddTasks = () => {
 					task={task}
 					setTask={setTask}
 					handleAddTodo={handleAddTodo}
+					todos={todos}
+					addedTodo={addedTodo}
+					setAddedTodo={setAddedTodo}
 				/>
 
-				{/* <div className='todo-input'>
-					<input
-						type='text'
-						placeholder='Add a new task'
-						value={task}
-						onChange={(e) => setTask(e.target.value)}
-					/>
-					<button onClick={handleAddTodo}>Add</button>
-				</div> */}
 				<ul className='todo-list'>
 					{todos.map((todo, index) => (
 						<li key={index}>
