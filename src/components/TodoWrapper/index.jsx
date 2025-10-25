@@ -1,7 +1,6 @@
 import styles from "./index.module.scss";
 import { useState, useEffect } from "react";
 import data from "../data";
-import { v4 as uuidv4 } from "uuid";
 import arrowUp from "../images/icons/arrow-up.svg";
 import ProgressBar from "../ProgressBar";
 import AddTasks from "../AddTasks";
@@ -10,8 +9,6 @@ import TodayTaskInput from "../Inputs/TodayTaskInput";
 
 // Div that include 4 divs (Todays tasks list, todays task with information how many tasks has been done , add new task div, and greeting of support)
 const TodoWrapper = () => {
-  const [todos, setTodos] = useState([]);
-  const [task, setTask] = useState("");
   const [upcomingTodos, setUpcomingTodos] = useState([]);
 
   const handleAddTodo = (newTask) => {
@@ -20,14 +17,15 @@ const TodoWrapper = () => {
         "todos",
         JSON.stringify([...upcomingTodos, newTask]),
       );
-      setTodos([...todos, newTask]);
+      setUpcomingTodos([...upcomingTodos, newTask]);
     }
   };
 
   const handleRemoveTodo = (index) => {
     // remove should be in upcoming tasks
-    const newTodos = todos.filter((_, i) => i !== index);
+    const newTodos = upcomingTodos.filter((_, i) => i !== index);
     localStorage.setItem("todos", JSON.stringify(newTodos));
+    setUpcomingTodos(newTodos);
   };
 
   useEffect(() => {
@@ -35,7 +33,7 @@ const TodoWrapper = () => {
     if (storedTodos) {
       setUpcomingTodos(storedTodos);
     }
-  }, [todos.length, upcomingTodos.length]);
+  }, [upcomingTodos.length]);
 
   return (
     <div className={styles.action}>
@@ -69,14 +67,7 @@ const TodoWrapper = () => {
       </div>
       {/* Add new task and greeting  */}
       <div className={styles.addTasksContainer}>
-        <AddTasks
-          handleAddTodo={handleAddTodo}
-          handleRemoveTodo={handleRemoveTodo}
-          todos={todos}
-          setTodos={setTodos}
-          setTask={setTask}
-          task={task}
-        />
+        <AddTasks handleAddTodo={handleAddTodo} />
       </div>
       {/* <AddTasks /> */}
       <UpcomingTasks

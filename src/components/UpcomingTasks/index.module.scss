@@ -1,50 +1,50 @@
 .upcomingTasks {
-	display: flex;
-	justify-content: space-between;
-	width: 100%;
-	flex-direction: column;
-	background-color: #181818;
-	background-color: red;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  flex-direction: column;
+  background-color: #181818;
+  background-color: red;
 
-	.headerH1 {
-		font-size: 5rem;
-	}
-	.upcomingTasksHeader {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		width: 100%;
-		background-color: #181818;
-		color: #fff;
+  .headerH1 {
+    font-size: 5rem;
+  }
+  .upcomingTasksHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: #181818;
+    color: #fff;
 
-		.arrow {
-			display: flex;
-			align-items: center;
-			justify-content: space-evenly;
-			width: 14%;
-			.spanArrow {
-				font-size: 2rem;
-			}
-			img {
-				width: 40px;
-				transform: rotate(45deg);
-			}
-		}
-	}
-	.upcomingTasksContainer {
-		display: flex;
-		width: 100%;
-		// background-color: yellow;
-	}
+    .arrow {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      width: 14%;
+      .spanArrow {
+        font-size: 2rem;
+      }
+      img {
+        width: 40px;
+        transform: rotate(45deg);
+      }
+    }
+  }
+  .upcomingTasksContainer {
+    display: flex;
+    width: 100%;
+    // background-color: yellow;
+  }
 
-	.upcomingTasksContainer ul {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		// background-color: #333;
-		padding: 10px;
-		border-radius: 4px;
-		margin-bottom: 10px;
-		min-width: 200px;
-	}
+  .upcomingTasksContainer ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    // background-color: #333;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    min-width: 800px;
+  }
 }
