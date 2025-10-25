@@ -3,15 +3,26 @@ import styles from './index.module.scss';
 import arrowUp from '../images/arrow.png';
 // import FetchTodos from '../hooks';
 
-const UpcomingTasks = ({ todos, addedTodo, setTodos }) => {
-	// Load TODOs from local storage on app startup
-	// Load TODOs from local storage on app startup
+const UpcomingTasks = () => {
+	const [todos, setTodos] = useState(() => {
+		const todos = JSON.parse(localStorage.getItem('todos'));
+		return todos || [];
+	});
+
+	useEffect(() => {
+		localStorage.setItem('todos', JSON.stringify(todos));
+	}, [todos]);
+	// useEffect(() => {
+	// 	localStorage.setItem('notes', JSON.stringify(notes));
+	// }, [notes]);
+
 	// Load TODOs from local storage on app startup
 	useEffect(() => {
 		const storedTodos = JSON.parse(localStorage.getItem('todos'));
 		if (storedTodos) {
 			setTodos(storedTodos);
 		}
+		console.log(storedTodos);
 	}, []);
 
 	return (

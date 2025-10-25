@@ -44,6 +44,8 @@ const AddTasks = () => {
 					todos={todos}
 					addedTodo={addedTodo}
 					setAddedTodo={setAddedTodo}
+					// data={data}
+					// setData={setData}
 				/>
 
 				<ul className='todo-list'>
