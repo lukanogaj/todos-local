@@ -3,7 +3,7 @@ import styles from './index.module.scss';
 import arrowUp from '../images/arrow.png';
 // import FetchTodos from '../hooks';
 
-const UpcomingTasks = ({ upcomingTodos }) => {
+const UpcomingTasks = ({ upcomingTodos, handleRemoveTodo }) => {
 	// Load TODOs from local storage on app startup
 
 	return (
@@ -22,7 +22,10 @@ const UpcomingTasks = ({ upcomingTodos }) => {
 			<div className={styles.upcomingTasksContainer}>
 				<ul>
 					{upcomingTodos.map((todo, index) => (
-						<li key={index}>{todo}</li>
+						<li key={index}>
+							{todo}
+							<button onClick={() => handleRemoveTodo(index)}>Remove</button>
+						</li>
 					))}
 				</ul>
 			</div>

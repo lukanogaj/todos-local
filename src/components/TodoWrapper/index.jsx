@@ -28,6 +28,7 @@ const TodoWrapper = () => {
 		// remove should be in upcoming tasks
 		const newTodos = todos.filter((_, i) => i !== index);
 		localStorage.setItem('todos', JSON.stringify(newTodos));
+		console.log('Clicked');
 	};
 
 	useEffect(() => {

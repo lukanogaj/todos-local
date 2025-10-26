@@ -24,15 +24,6 @@ const AddTasks = ({
 					addedTodo={addedTodo}
 					setAddedTodo={setAddedTodo}
 				/>
-
-				<ul className='todo-list'>
-					{todos.map((todo, index) => (
-						<li key={index}>
-							{todo}
-							<button onClick={() => handleRemoveTodo(index)}>Remove</button>
-						</li>
-					))}
-				</ul>
 			</div>
 			<div className={styles.greeting}>
 				<div className={styles.awesomeImg}>
