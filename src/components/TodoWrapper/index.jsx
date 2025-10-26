@@ -1,5 +1,5 @@
 import styles from './index.module.scss';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import data from '../data';
 import { v4 as uuidv4 } from 'uuid';
 import arrowUp from '../images/icons/arrow-up.svg';
@@ -12,6 +12,30 @@ import TodayTaskInput from '../Inputs/TodayTaskInput';
 const TodoWrapper = () => {
 	const [todos, setTodos] = useState([]);
 	const [task, setTask] = useState('');
+	const [upcomingTodos, setUpcomingTodos] = useState([]);
+
+	const handleAddTodo = (newTask) => {
+		if (newTask.trim() !== '') {
+			localStorage.setItem(
+				'todos',
+				JSON.stringify([...upcomingTodos, newTask])
+			);
+			setTodos([...todos, newTask]);
+		}
+	};
+
+	const handleRemoveTodo = (index) => {
+		// remove should be in upcoming tasks
+		const newTodos = todos.filter((_, i) => i !== index);
+		localStorage.setItem('todos', JSON.stringify(newTodos));
+	};
+
+	useEffect(() => {
+		const storedTodos = JSON.parse(localStorage.getItem('todos'));
+		if (storedTodos) {
+			setUpcomingTodos(storedTodos);
+		}
+	}, [todos.length, upcomingTodos.length]);
 
 	return (
 		<div className={styles.action}>
@@ -52,20 +76,19 @@ const TodoWrapper = () => {
 			</div>
 			{/* Add new task and greeting  */}
 			<div className={styles.addTasksContainer}>
-				{' '}
 				<AddTasks
+					handleAddTodo={handleAddTodo}
+					handleRemoveTodo={handleRemoveTodo}
 					todos={todos}
 					setTodos={setTodos}
+					setTask={setTask}
+					task={task}
 				/>
 			</div>
 			{/* <AddTasks /> */}
 			<UpcomingTasks
-				data={data}
-				task={task}
-				todos={todos}
-				setTodos={setTodos}
-				// tasks={tasks}
-				// handleRemoveTodo={handleRemoveTodo}
+				upcomingTodos={upcomingTodos}
+				handleRemoveTodo={handleRemoveTodo}
 			/>
 		</div>
 	);

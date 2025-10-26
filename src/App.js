@@ -9,8 +9,6 @@ function App() {
 	return (
 		<Layout>
 			<Hero />
-			{/* <TestComponent /> */}
-			<button>Clear</button>
 		</Layout>
 	);
 }

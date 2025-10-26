@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import styles from './index.module.scss';
 import AddNewTaskControl from '../Controls/AddNewTaskControl';
 import HideForm from '../Controls/HideForm';
-const AddNewTodoInput = ({ task, setTask, handleAddTodo }) => {
+const AddNewTodoInput = ({ handleAddTodo }) => {
+	const [input, setInput] = useState('');
 	const [isFormVisible, setIsFormVisible] = useState(false);
 
 	const clearLocale = () => localStorage.clear();
@@ -20,11 +21,17 @@ const AddNewTodoInput = ({ task, setTask, handleAddTodo }) => {
 						<input
 							type='text'
 							placeholder='Add a new task'
-							value={task}
-							onChange={(e) => setTask(e.target.value)}
+							value={input}
+							onChange={(e) => setInput(e.target.value)}
 							// setAddedTodo={setAddedTodo}
 						/>
-						<button onClick={() => handleAddTodo()}>Submit</button>
+						<button
+							onClick={() => {
+								handleAddTodo(input);
+								setInput('');
+							}}>
+							Submit
+						</button>
 						<button onClick={() => clearLocale()}>Clear</button>
 					</div>
 				)}

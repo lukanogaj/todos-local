@@ -2,38 +2,17 @@ import styles from './index.module.scss';
 import { useState, useRef, useEffect } from 'react';
 import youAreAwesome from '../images/youarewesome.png';
 import AddNewTodoInput from '../Inputs/AddNewTodoInput';
-const AddTasks = () => {
+const AddTasks = ({
+	handleAddTodo,
+	handleRemoveTodo,
+	setTodos,
+	setTask,
+	todos,
+	task,
+}) => {
 	// State for make addTask input visible
-	const [todos, setTodos] = useState([]);
-	const [task, setTask] = useState('');
 	const [addedTodo, setAddedTodo] = useState(false);
 
-	// Show the form when click
-
-	// Load TODOs from local storage on app startup
-	useEffect(() => {
-		const storedTodos = JSON.parse(localStorage.getItem('todos'));
-		if (storedTodos) {
-			setTodos(storedTodos);
-		}
-	}, []);
-
-	// Update local storage whenever TODOs change
-	useEffect(() => {
-		localStorage.setItem('todos', JSON.stringify(todos));
-	}, [todos]);
-
-	const handleAddTodo = () => {
-		if (task.trim() !== '') {
-			setTodos([...todos, task]);
-			setTask('');
-		}
-	};
-
-	const handleRemoveTodo = (index) => {
-		const newTodos = todos.filter((_, i) => i !== index);
-		setTodos(newTodos);
-	};
 	return (
 		<div className={styles.addTasks}>
 			<div className={styles.addTask}>
@@ -44,8 +23,6 @@ const AddTasks = () => {
 					todos={todos}
 					addedTodo={addedTodo}
 					setAddedTodo={setAddedTodo}
-					// data={data}
-					// setData={setData}
 				/>
 
 				<ul className='todo-list'>
