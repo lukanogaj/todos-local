@@ -1,11 +1,8 @@
-import { useState, useEffect } from 'react';
 import styles from './index.module.scss';
 import arrowUp from '../images/arrow.png';
 // import FetchTodos from '../hooks';
 
 const UpcomingTasks = ({ upcomingTodos, handleRemoveTodo }) => {
-	// Load TODOs from local storage on app startup
-
 	return (
 		<div className={styles.upcomingTasks}>
 			<div className={styles.upcomingTasksHeader}>
@@ -22,10 +19,25 @@ const UpcomingTasks = ({ upcomingTodos, handleRemoveTodo }) => {
 			<div className={styles.upcomingTasksContainer}>
 				<ul>
 					{upcomingTodos.map((todo, index) => (
-						<li key={index}>
-							{todo}
-							<button onClick={() => handleRemoveTodo(index)}>Remove</button>
-						</li>
+						<div
+							key={index}
+							style={{
+								display: 'flex',
+								width: '100%',
+								justifyContent: 'space-between',
+								paddingBottom: '4px',
+							}}>
+							<li key={index}>{todo}</li>
+							<button
+								style={{
+									padding: '4px 8px',
+									backgroundColor: 'white',
+									cursor: 'pointer',
+								}}
+								onClick={() => handleRemoveTodo(index)}>
+								delete me
+							</button>
+						</div>
 					))}
 				</ul>
 			</div>
