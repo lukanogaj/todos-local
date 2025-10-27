@@ -1,20 +1,20 @@
-import styles from './index.module.scss';
-import { useState, useEffect } from 'react';
-import data from '../data';
-import arrowUp from '../images/icons/arrow-up.svg';
-import ProgressBar from '../ProgressBar';
-import AddTasks from '../AddTasks';
-import UpcomingTasks from '../UpcomingTasks';
-import TodayTaskInput from '../Inputs/TodayTaskInput';
+import styles from "./index.module.scss";
+import { useState, useEffect } from "react";
+import data from "../data";
+import arrowUp from "../images/icons/arrow-up.svg";
+import ProgressBar from "../ProgressBar";
+import AddTasks from "../AddTasks";
+import UpcomingTasks from "../UpcomingTasks";
+import TodayTaskInput from "../Inputs/TodayTaskInput";
 
 // Div that include 4 divs (Todays tasks list, todays task with information how many tasks has been done , add new task div, and greeting of support)
 const TodoWrapper = () => {
 	const [upcomingTodos, setUpcomingTodos] = useState([]);
 
 	const handleAddTodo = (newTask) => {
-		if (newTask.trim() !== '') {
+		if (newTask.trim() !== "") {
 			localStorage.setItem(
-				'todos',
+				"todos",
 				JSON.stringify([...upcomingTodos, newTask])
 			);
 			setUpcomingTodos([...upcomingTodos, newTask]);
@@ -24,15 +24,25 @@ const TodoWrapper = () => {
 	const handleRemoveTodo = (index) => {
 		// remove should be in upcoming tasks
 		const newTodos = upcomingTodos.filter((_, i) => i !== index);
-		localStorage.setItem('todos', JSON.stringify(newTodos));
+		localStorage.setItem("todos", JSON.stringify(newTodos));
 		setUpcomingTodos(newTodos);
 	};
 
 	useEffect(() => {
-		const storedTodos = JSON.parse(localStorage.getItem('todos'));
-		if (storedTodos) {
-			setUpcomingTodos(storedTodos);
+		function safeJSON(todos, fallback = null) {
+			try {
+				const storedTodos = localStorage.getItem(todos);
+				return storedTodos ? JSON.parse(storedTodos) : fallback;
+			} catch {
+				localStorage.removeItem(todos);
+			}
+			return fallback;
 		}
+		safeJSON();
+		// const storedTodos = JSON.parse(localStorage.getItem("todos") || "{}");
+		// if (storedTodos) {
+		// 	setUpcomingTodos(storedTodos);
+		// }
 	}, [upcomingTodos.length]);
 
 	return (
