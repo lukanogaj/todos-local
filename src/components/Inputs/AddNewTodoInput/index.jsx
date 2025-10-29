@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import styles from './index.module.scss';
-import AddNewTaskControl from '../Controls/AddNewTaskControl';
-import HideForm from '../Controls/HideForm';
+import { useState } from "react";
+import styles from "./index.module.scss";
+import AddNewTaskControl from "../Controls/AddNewTaskControl";
+import HideForm from "../Controls/HideForm";
 const AddNewTodoInput = ({ handleAddTodo }) => {
-	const [input, setInput] = useState('');
+	const [input, setInput] = useState("");
 	const [isFormVisible, setIsFormVisible] = useState(false);
 
 	const clearLocale = () => localStorage.clear();
@@ -25,10 +25,12 @@ const AddNewTodoInput = ({ handleAddTodo }) => {
 							onChange={(e) => setInput(e.target.value)}
 							// setAddedTodo={setAddedTodo}
 						/>
+						<input type='time' />
+						<input type='date' />
 						<button
 							onClick={() => {
 								handleAddTodo(input);
-								setInput('');
+								setInput("");
 							}}>
 							Submit
 						</button>
