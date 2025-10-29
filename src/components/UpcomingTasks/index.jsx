@@ -1,5 +1,6 @@
-import styles from './index.module.scss';
-import arrowUp from '../images/arrow.png';
+import styles from "./index.module.scss";
+import arrowUp from "../images/arrow.png";
+import UpcomingTaskInput from "../Inputs/UpcomingTaskInput";
 // import FetchTodos from '../hooks';
 
 const UpcomingTasks = ({ upcomingTodos, handleRemoveTodo }) => {
@@ -17,29 +18,10 @@ const UpcomingTasks = ({ upcomingTodos, handleRemoveTodo }) => {
 			</div>
 			{/* Upcoming Todos items  */}
 			<div className={styles.upcomingTasksContainer}>
-				<ul>
-					{upcomingTodos.map((todo, index) => (
-						<div
-							key={index}
-							style={{
-								display: 'flex',
-								width: '100%',
-								justifyContent: 'space-between',
-								paddingBottom: '4px',
-							}}>
-							<li key={index}>{todo}</li>
-							<button
-								style={{
-									padding: '4px 8px',
-									backgroundColor: 'white',
-									cursor: 'pointer',
-								}}
-								onClick={() => handleRemoveTodo(index)}>
-								delete me
-							</button>
-						</div>
-					))}
-				</ul>
+				<UpcomingTaskInput
+					upcomingTodos={upcomingTodos}
+					handleRemoveTodo={handleRemoveTodo}
+				/>
 			</div>
 		</div>
 	);

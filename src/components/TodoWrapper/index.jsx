@@ -5,7 +5,8 @@ import arrowUp from "../images/icons/arrow-up.svg";
 import ProgressBar from "../ProgressBar";
 import AddTasks from "../AddTasks";
 import UpcomingTasks from "../UpcomingTasks";
-import TodayTaskInput from "../Inputs/TodayTaskInput";
+// import TodayTaskInput from "../Inputs/TodayTaskInput";
+import CheckBoxToday from "../Inputs/Controls/CheckboxToday";
 
 // Div that include 4 divs (Todays tasks list, todays task with information how many tasks has been done , add new task div, and greeting of support)
 const TodoWrapper = () => {
@@ -28,6 +29,7 @@ const TodoWrapper = () => {
 		setUpcomingTodos(newTodos);
 	};
 
+	// Dealing with the undefined JSON]
 	useEffect(() => {
 		function safeJSON(todos, fallback = null) {
 			try {
@@ -62,7 +64,7 @@ const TodoWrapper = () => {
 							key={todoItem.id}
 							className={styles.tasks}>
 							<div className={styles.taskIcon}>
-								<TodayTaskInput />
+								<CheckBoxToday />
 							</div>
 							<div
 								className={styles.taskText}

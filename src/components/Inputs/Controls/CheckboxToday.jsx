@@ -1,14 +1,14 @@
 import styles from "./index.module.scss";
 
-const TodayTaskInput = () => {
+const CheckBoxToday = () => {
 	return (
 		<div className={styles.checkboxWrapper}>
 			<label>
 				<input type='checkbox' />
-				<span className={styles.checkbox}></span>
+				<span class={styles.checkboxToday}></span>
 			</label>
 		</div>
 	);
 };
 
-export default TodayTaskInput;
+export default CheckBoxToday;

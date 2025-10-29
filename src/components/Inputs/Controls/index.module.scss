@@ -16,3 +16,64 @@
 	color: #fff;
 	cursor: pointer;
 }
+
+/// Checkbox for the inputs
+.checkboxWrapper *,
+.checkboxWrapper *::before,
+.checkboxWrapper *::after {
+	box-sizing: border-box;
+}
+
+.checkboxWrapper label {
+	display: block;
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+}
+
+.checkboxWrapper input {
+	visibility: hidden;
+	display: none;
+}
+
+.checkboxWrapper input:checked ~ .checkbox {
+	transform: rotate(45deg);
+	width: 14px;
+	margin-left: 12px;
+	border-color: #f76702;
+
+	border-top-color: transparent;
+	border-left-color: transparent;
+	border-radius: 0;
+}
+
+.checkboxWrapper .checkbox {
+	display: block;
+	width: inherit;
+	height: inherit;
+	border: 3px solid #fff;
+	border-radius: 6px;
+	transition: all 0.375s;
+}
+
+// Checkbox today
+
+.checkboxWrapper input:checked ~ .checkboxToday {
+	transform: rotate(45deg);
+	width: 14px;
+	margin-left: 12px;
+	border-color: #f76702;
+
+	border-top-color: transparent;
+	border-left-color: transparent;
+	border-radius: 0;
+}
+
+.checkboxWrapper .checkboxToday {
+	display: block;
+	width: inherit;
+	height: inherit;
+	border: 3px solid #000;
+	border-radius: 6px;
+	transition: all 0.375s;
+}

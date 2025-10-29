@@ -1,0 +1,62 @@
+import styles from "./index.module.scss";
+
+const CheckBox = () => {
+	return (
+		<div className={styles.checkboxWrapper}>
+			<label>
+				<input type='checkbox' />
+				<span class={styles.checkbox}></span>
+			</label>
+		</div>
+	);
+};
+
+export default CheckBox;
+
+/*
+<div class="checkbox-wrapper-39">
+  <label>
+    <input type="checkbox"/>
+    <span class="checkbox"></span>
+  </label>
+</div>
+
+<style>
+  .checkbox-wrapper-39 *,
+  .checkbox-wrapper-39 *::before,
+  .checkbox-wrapper-39 *::after {
+    box-sizing: border-box;
+  }
+
+  .checkbox-wrapper-39 label {
+    display: block;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+  }
+
+  .checkbox-wrapper-39 input {
+    visibility: hidden;
+    display: none;
+  }
+
+  .checkbox-wrapper-39 input:checked ~ .checkbox {
+   transform: rotate(45deg);
+   width: 14px;
+   margin-left: 12px;
+   border-color: #24c78e;
+   border-top-color: transparent;
+   border-left-color: transparent;
+   border-radius: 0;
+  }
+
+  .checkbox-wrapper-39 .checkbox {
+    display: block;
+    width: inherit;
+    height: inherit;
+    border: 3px solid #434343;
+    border-radius: 6px;
+    transition: all 0.375s;
+  }
+</style>
+*/
