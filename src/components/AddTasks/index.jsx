@@ -1,7 +1,8 @@
-import styles from './index.module.scss';
-import { useState, useRef, useEffect } from 'react';
-import youAreAwesome from '../images/youarewesome.png';
-import AddNewTodoInput from '../Inputs/AddNewTodoInput';
+import styles from "./index.module.scss";
+import { useState } from "react";
+
+import youAreAwesome from "../images/youarewesome.png";
+import AddNewTodoInput from "../Inputs/AddNewTodoInput";
 const AddTasks = ({
 	handleAddTodo,
 	handleRemoveTodo,

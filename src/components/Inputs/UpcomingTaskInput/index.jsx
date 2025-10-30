@@ -6,7 +6,7 @@ const UpcomingTaskInput = ({ handleRemoveTodo, upcomingTodos }) => {
 			<ul className={styles.list}>
 				{upcomingTodos.map((todo, index) => (
 					<div
-						div
+						// key={todo.index}
 						className={styles.listItem}>
 						<CheckBox />
 						<li key={index}>{todo}</li>

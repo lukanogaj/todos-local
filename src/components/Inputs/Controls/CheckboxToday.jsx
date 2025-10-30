@@ -5,7 +5,7 @@ const CheckBoxToday = () => {
 		<div className={styles.checkboxWrapper}>
 			<label>
 				<input type='checkbox' />
-				<span class={styles.checkboxToday}></span>
+				<span className={styles.checkboxToday}></span>
 			</label>
 		</div>
 	);

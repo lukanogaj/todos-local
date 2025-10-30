@@ -25,8 +25,8 @@ const AddNewTodoInput = ({ handleAddTodo }) => {
 							onChange={(e) => setInput(e.target.value)}
 							// setAddedTodo={setAddedTodo}
 						/>
-						<input type='time' />
-						<input type='date' />
+						{/* <input type='time' />
+						<input type='date' /> */}
 						<button
 							onClick={() => {
 								handleAddTodo(input);

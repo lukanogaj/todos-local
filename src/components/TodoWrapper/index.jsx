@@ -5,13 +5,17 @@ import arrowUp from "../images/icons/arrow-up.svg";
 import ProgressBar from "../ProgressBar";
 import AddTasks from "../AddTasks";
 import UpcomingTasks from "../UpcomingTasks";
-// import TodayTaskInput from "../Inputs/TodayTaskInput";
 import CheckBoxToday from "../Inputs/Controls/CheckboxToday";
 
 // Div that include 4 divs (Todays tasks list, todays task with information how many tasks has been done , add new task div, and greeting of support)
 const TodoWrapper = () => {
 	const [upcomingTodos, setUpcomingTodos] = useState([]);
+	const [newPriority, setNewPriority] = useState("Normal");
+	const [newDueDate, setNewDueDate] = useState("");
+	const [newTask, setNewTask] = useState("");
+	// const [searchTerm, setSearchTerm] = useState("");
 
+	// Add Todo
 	const handleAddTodo = (newTask) => {
 		if (newTask.trim() !== "") {
 			localStorage.setItem(
@@ -22,6 +26,19 @@ const TodoWrapper = () => {
 		}
 	};
 
+	///
+	// const addTodo = (task, priority, dueDate) => {
+	// 	if (task.trim() !== "") {
+	// 		setUpcomingTodos([
+	// 			...upcomingTodos,
+	// 			{ id: Date.now(), task, completed: false, priority, dueDate },
+	// 		]);
+	// 		setNewTask("");
+	// 		setNewPriority("Normal");
+	// 		setNewDueDate("");
+	// 	}
+	// };
+
 	const handleRemoveTodo = (index) => {
 		// remove should be in upcoming tasks
 		const newTodos = upcomingTodos.filter((_, i) => i !== index);
@@ -29,7 +46,10 @@ const TodoWrapper = () => {
 		setUpcomingTodos(newTodos);
 	};
 
-	// Dealing with the undefined JSON]
+	// const handleAddClick = () => {
+	// 	addTodo(newTask, newPriority, newDueDate);
+	// };
+	// Dealing with the undefined JSON and get the todos from local storage
 	useEffect(() => {
 		function safeJSON(todos, fallback = null) {
 			try {
