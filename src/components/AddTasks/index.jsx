@@ -4,12 +4,14 @@ import { useState } from "react";
 import youAreAwesome from "../images/youarewesome.png";
 import AddNewTodoInput from "../Inputs/AddNewTodoInput";
 const AddTasks = ({
-	handleAddTodo,
+	handleAddTodoCopy,
 	handleRemoveTodo,
 	setTodos,
 	setTask,
 	todos,
 	task,
+	date,
+	setDate,
 }) => {
 	// State for make addTask input visible
 	const [addedTodo, setAddedTodo] = useState(false);
@@ -20,10 +22,12 @@ const AddTasks = ({
 				<AddNewTodoInput
 					task={task}
 					setTask={setTask}
-					handleAddTodo={handleAddTodo}
+					handleAddTodo={handleAddTodoCopy}
 					todos={todos}
 					addedTodo={addedTodo}
 					setAddedTodo={setAddedTodo}
+					date={date}
+					setDate={setDate}
 				/>
 			</div>
 			<div className={styles.greeting}>

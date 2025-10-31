@@ -6,10 +6,44 @@ import ProgressBar from "../ProgressBar";
 import AddTasks from "../AddTasks";
 import UpcomingTasks from "../UpcomingTasks";
 import CheckBoxToday from "../Inputs/Controls/CheckboxToday";
-import TestTodoComponent from "../TestTodoComponent";
+// import TestTodoComponent from "../TestTodoComponent";
 // Div that include 4 divs (Todays tasks list, todays task with information how many tasks has been done , add new task div, and greeting of support)
 const TodoWrapper = () => {
 	const [upcomingTodos, setUpcomingTodos] = useState([]);
+	const [title, setTitle] = useState("");
+
+	const [date, setDate] = useState("");
+	const [time, setTime] = useState("");
+
+	// Second approach with the dates
+	function handleAddTodoCopy(e) {
+		e.preventDefault();
+		if (!title || !date || !time) return;
+
+		setUpcomingTodos([
+			...upcomingTodos,
+			{
+				id: Date.now(),
+				title,
+				date,
+				time,
+			},
+		]);
+		setTitle("");
+		setDate("");
+		setTime("");
+	}
+
+	// function handleDelete(id) {
+	// 	setUpcomingTodos(upcomingTodos.filter((todo) => todo.id !== id));
+	// }
+
+	// Sort todos by date and time
+	// const sortedTodos = [...upcomingTodos].sort((a, b) => {
+	// 	const dtA = new Date(`${a.date}T${a.time}`);
+	// 	const dtB = new Date(`${b.date}T${b.time}`);
+	// 	return dtA - dtB;
+	// });
 
 	// Add Todo
 	const handleAddTodo = (newTask) => {
@@ -86,7 +120,7 @@ const TodoWrapper = () => {
 			</div>
 			{/* Add new task and greeting  */}
 			<div className={styles.addTasksContainer}>
-				<AddTasks handleAddTodo={handleAddTodo} />
+				<AddTasks handleAddTodo={handleAddTodoCopy} />
 			</div>
 			{/* <AddTasks /> */}
 			<UpcomingTasks

@@ -2,9 +2,10 @@ import { useState } from "react";
 import styles from "./index.module.scss";
 import AddNewTaskControl from "../Controls/AddNewTaskControl";
 import HideForm from "../Controls/HideForm";
-const AddNewTodoInput = ({ handleAddTodo }) => {
-	const [input, setInput] = useState("");
+const AddNewTodoInput = ({ handleAddTodoCopy, time, setTime }) => {
+	const [title, setTitle] = useState("");
 	const [isFormVisible, setIsFormVisible] = useState(false);
+	const [date, setDate] = useState("");
 
 	const clearLocale = () => localStorage.clear();
 
@@ -21,16 +22,28 @@ const AddNewTodoInput = ({ handleAddTodo }) => {
 						<input
 							type='text'
 							placeholder='Add a new task'
-							value={input}
-							onChange={(e) => setInput(e.target.value)}
-							// setAddedTodo={setAddedTodo}
+							value={title}
+							onChange={(e) => setTitle(e.target.value)}
+							required
 						/>
-						{/* <input type='time' />
-						<input type='date' /> */}
+						<input
+							type='date'
+							value={date}
+							onChange={(e) => setDate(e.target.value)}
+							style={{ marginRight: "0.5rem" }}
+							required
+						/>
+						<input
+							type='time'
+							value={time}
+							onChange={(e) => setTime(e.target.value)}
+							style={{ marginRight: "0.5rem" }}
+							required
+						/>
 						<button
 							onClick={() => {
-								handleAddTodo(input);
-								setInput("");
+								handleAddTodoCopy(title);
+								setTitle("");
 							}}>
 							Submit
 						</button>
