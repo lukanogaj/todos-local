@@ -10,10 +10,6 @@ import TestTodoComponent from "../TestTodoComponent";
 // Div that include 4 divs (Todays tasks list, todays task with information how many tasks has been done , add new task div, and greeting of support)
 const TodoWrapper = () => {
 	const [upcomingTodos, setUpcomingTodos] = useState([]);
-	const [newPriority, setNewPriority] = useState("Normal");
-	const [newDueDate, setNewDueDate] = useState("");
-	const [newTask, setNewTask] = useState("");
-	// const [searchTerm, setSearchTerm] = useState("");
 
 	// Add Todo
 	const handleAddTodo = (newTask) => {
@@ -97,6 +93,8 @@ const TodoWrapper = () => {
 				upcomingTodos={upcomingTodos}
 				handleRemoveTodo={handleRemoveTodo}
 			/>
+
+			{/* <TestTodoComponent /> */}
 		</div>
 	);
 };
