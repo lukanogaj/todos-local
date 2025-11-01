@@ -5,21 +5,19 @@ import arrowUp from "../images/icons/arrow-up.svg";
 import ProgressBar from "../ProgressBar";
 import AddTasks from "../AddTasks";
 import UpcomingTasks from "../UpcomingTasks";
-import CheckBoxToday from "../Inputs/Controls/CheckboxToday";
+import CheckBoxToday from "../Controls/Checkbox";
+// import useLocalStorage from "../hooks/useLocalStorage";
 // import TestTodoComponent from "../TestTodoComponent";
 // Div that include 4 divs (Todays tasks list, todays task with information how many tasks has been done , add new task div, and greeting of support)
 const TodoWrapper = () => {
 	const [upcomingTodos, setUpcomingTodos] = useState([]);
 	const [title, setTitle] = useState("");
-
 	const [date, setDate] = useState("");
 	const [time, setTime] = useState("");
 
 	// Second approach with the dates
-	function handleAddTodoCopy(e) {
-		e.preventDefault();
+	const handleAddTodo = () => {
 		if (!title || !date || !time) return;
-
 		setUpcomingTodos([
 			...upcomingTodos,
 			{
@@ -32,11 +30,15 @@ const TodoWrapper = () => {
 		setTitle("");
 		setDate("");
 		setTime("");
-	}
+	};
 
-	// function handleDelete(id) {
-	// 	setUpcomingTodos(upcomingTodos.filter((todo) => todo.id !== id));
-	// }
+	///Use Effect for the second approac
+	useEffect(() => {
+		const storedTodos = JSON.parse(localStorage.getItem("todos"));
+		if (storedTodos) {
+			setUpcomingTodos(storedTodos);
+		}
+	}, [upcomingTodos.length]);
 
 	// Sort todos by date and time
 	// const sortedTodos = [...upcomingTodos].sort((a, b) => {
@@ -45,16 +47,18 @@ const TodoWrapper = () => {
 	// 	return dtA - dtB;
 	// });
 
+	// Update function with the title
+
 	// Add Todo
-	const handleAddTodo = (newTask) => {
-		if (newTask.trim() !== "") {
-			localStorage.setItem(
-				"todos",
-				JSON.stringify([...upcomingTodos, newTask])
-			);
-			setUpcomingTodos([...upcomingTodos, newTask]);
-		}
-	};
+	// const handleAddTodo = (newTask) => {
+	// 	if (newTask.trim() !== "") {
+	// 		localStorage.setItem(
+	// 			"todos",
+	// 			JSON.stringify([...upcomingTodos, newTask])
+	// 		);
+	// 		setUpcomingTodos([...upcomingTodos, newTask]);
+	// 	}
+	// };
 
 	const handleRemoveTodo = (index) => {
 		// remove should be in upcoming tasks
@@ -120,7 +124,15 @@ const TodoWrapper = () => {
 			</div>
 			{/* Add new task and greeting  */}
 			<div className={styles.addTasksContainer}>
-				<AddTasks handleAddTodo={handleAddTodoCopy} />
+				<AddTasks
+					handleAddTodo={handleAddTodo}
+					title={title}
+					setTitle={setTitle}
+					date={date}
+					setDate={setDate}
+					time={time}
+					setTime={setTime}
+				/>
 			</div>
 			{/* <AddTasks /> */}
 			<UpcomingTasks
