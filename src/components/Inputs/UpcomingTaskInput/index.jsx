@@ -3,7 +3,7 @@ import CheckBox from "../../Controls/Checkbox";
 const UpcomingTaskInput = ({ handleRemoveTodo, upcomingTodos }) => {
 	return (
 		<div className={styles.upcomingTaskInputContainer}>
-			<ul className={styles.list}>
+			{/* <ul className={styles.list}>
 				{upcomingTodos.map((todo, index) => (
 					<div
 						key={todo.index}
@@ -19,7 +19,7 @@ const UpcomingTaskInput = ({ handleRemoveTodo, upcomingTodos }) => {
 						<button onClick={() => handleRemoveTodo(index)}>delete me</button>
 					</div>
 				))}
-			</ul>
+			</ul> */}
 		</div>
 	);
 };

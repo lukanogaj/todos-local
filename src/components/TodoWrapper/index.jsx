@@ -10,47 +10,51 @@ import CheckBoxToday from "../Controls/Checkbox";
 // import TestTodoComponent from "../TestTodoComponent";
 // Div that include 4 divs (Todays tasks list, todays task with information how many tasks has been done , add new task div, and greeting of support)
 const TodoWrapper = () => {
-	const [upcomingTodos, setUpcomingTodos] = useState([]);
-	const [title, setTitle] = useState("");
-	const [date, setDate] = useState("");
-	const [time, setTime] = useState("");
+	// const [upcomingTodos, setUpcomingTodos] = useState([]);
+	// const [title, setTitle] = useState("");
+	// const [date, setDate] = useState("");
+	// const [time, setTime] = useState("");
 
-	// Second approach with the dates
-	const handleAddTodo = () => {
-		if (!title || !date || !time) return;
-		setUpcomingTodos([
-			...upcomingTodos,
-			{
-				id: Date.now(),
-				title,
-				date,
-				time,
-			},
-		]);
-		setTitle("");
-		setDate("");
-		setTime("");
-	};
-
-	///Use Effect for the second approac
-	useEffect(() => {
-		const storedTodos = JSON.parse(localStorage.getItem("todos"));
-		if (storedTodos) {
-			setUpcomingTodos(storedTodos);
-		}
-	}, [upcomingTodos.length]);
-
-	// Sort todos by date and time
-	// const sortedTodos = [...upcomingTodos].sort((a, b) => {
-	// 	const dtA = new Date(`${a.date}T${a.time}`);
-	// 	const dtB = new Date(`${b.date}T${b.time}`);
-	// 	return dtA - dtB;
-	// });
-
-	// Update function with the title
-
-	// Add Todo
+	// // Second approach with the dates
 	// const handleAddTodo = (newTask) => {
+	// 	if (!title || !date || !time) {
+	// 		localStorage.setItem(
+	// 			"todos",
+	// 			JSON.stringify([
+	// 				...upcomingTodos,
+	// 				{
+	// 					id: Date.now(),
+	// 					title,
+	// 					date,
+	// 					time,
+	// 				},
+	// 			])
+	// 		);
+	// 		setTitle("");
+	// 		setDate("");
+	// 		setTime("");
+	// 	}
+	// };
+
+	// ///Use Effect for the second approac
+	// useEffect(() => {
+	// 	const storedTodos = JSON.parse(localStorage.getItem("todos"));
+	// 	if (storedTodos) {
+	// 		setUpcomingTodos(storedTodos);
+	// 	}
+	// }, [upcomingTodos.length]);
+
+	// // Sort todos by date and time
+	// // const sortedTodos = [...upcomingTodos].sort((a, b) => {
+	// // 	const dtA = new Date(`${a.date}T${a.time}`);
+	// // 	const dtB = new Date(`${b.date}T${b.time}`);
+	// // 	return dtA - dtB;
+	// // });
+
+	// // Update function with the title
+
+	// // Add Todo
+	// const handleAddTodo2 = (newTask) => {
 	// 	if (newTask.trim() !== "") {
 	// 		localStorage.setItem(
 	// 			"todos",
@@ -60,30 +64,30 @@ const TodoWrapper = () => {
 	// 	}
 	// };
 
-	const handleRemoveTodo = (index) => {
-		// remove should be in upcoming tasks
-		const newTodos = upcomingTodos.filter((_, i) => i !== index);
-		localStorage.setItem("todos", JSON.stringify(newTodos));
-		setUpcomingTodos(newTodos);
-	};
+	// const handleRemoveTodo = (index) => {
+	// 	// remove should be in upcoming tasks
+	// 	const newTodos = upcomingTodos.filter((_, i) => i !== index);
+	// 	localStorage.setItem("todos", JSON.stringify(newTodos));
+	// 	setUpcomingTodos(newTodos);
+	// };
 
 	// Dealing with the undefined JSON and get the todos from local storage
-	useEffect(() => {
-		function safeJSON(todos, fallback = null) {
-			try {
-				const storedTodos = localStorage.getItem(todos);
-				return storedTodos ? JSON.parse(storedTodos) : fallback;
-			} catch {
-				localStorage.removeItem(todos);
-			}
-			return fallback;
-		}
-		safeJSON();
-		// const storedTodos = JSON.parse(localStorage.getItem("todos") || "{}");
-		// if (storedTodos) {
-		// 	setUpcomingTodos(storedTodos);
-		// }
-	}, [upcomingTodos.length]);
+	// useEffect(() => {
+	// 	function safeJSON(todos, fallback = null) {
+	// 		try {
+	// 			const storedTodos = localStorage.getItem(todos);
+	// 			return storedTodos ? JSON.parse(storedTodos) : fallback;
+	// 		} catch {
+	// 			localStorage.removeItem(todos);
+	// 		}
+	// 		return fallback;
+	// 	}
+	// 	safeJSON();
+	// 	// const storedTodos = JSON.parse(localStorage.getItem("todos") || "{}");
+	// 	// if (storedTodos) {
+	// 	// 	setUpcomingTodos(storedTodos);
+	// 	// }
+	// }, [upcomingTodos.length]);
 
 	return (
 		<div className={styles.action}>
@@ -124,20 +128,12 @@ const TodoWrapper = () => {
 			</div>
 			{/* Add new task and greeting  */}
 			<div className={styles.addTasksContainer}>
-				<AddTasks
-					handleAddTodo={handleAddTodo}
-					title={title}
-					setTitle={setTitle}
-					date={date}
-					setDate={setDate}
-					time={time}
-					setTime={setTime}
-				/>
+				<AddTasks />
 			</div>
 			{/* <AddTasks /> */}
 			<UpcomingTasks
-				upcomingTodos={upcomingTodos}
-				handleRemoveTodo={handleRemoveTodo}
+			// upcomingTodos={upcomingTodos}
+			// handleRemoveTodo={handleRemoveTodo}
 			/>
 
 			{/* <TestTodoComponent /> */}
