@@ -18,6 +18,10 @@ const AddTasks = () => {
 	const [date, setDate] = useState("");
 	const [time, setTime] = useState("");
 
+	const clearLocale = () => {
+		localStorage.clear();
+	};
+
 	useEffect(() => {
 		localStorage.setItem("todos", JSON.stringify(todos));
 	}, [todos]);
@@ -33,6 +37,7 @@ const AddTasks = () => {
 				title,
 				date,
 				time,
+				completed: false,
 			},
 		]);
 		setTitle("");
@@ -107,6 +112,7 @@ const AddTasks = () => {
 							style={{ marginLeft: "1rem" }}>
 							Delete
 						</button>
+						<button onClick={() => clearLocale()}>Clear</button>
 					</li>
 				))}
 			</ul>
