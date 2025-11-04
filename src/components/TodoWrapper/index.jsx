@@ -9,86 +9,49 @@ import CheckBoxToday from "../Controls/Checkbox";
 // import useLocalStorage from "../hooks/useLocalStorage";
 // import TestTodoComponent from "../TestTodoComponent";
 // Div that include 4 divs (Todays tasks list, todays task with information how many tasks has been done , add new task div, and greeting of support)
+
 const TodoWrapper = () => {
-	// const [upcomingTodos, setUpcomingTodos] = useState([]);
-	// const [title, setTitle] = useState("");
-	// const [date, setDate] = useState("");
-	// const [time, setTime] = useState("");
+	const [todos, setTodos] = useState([]);
+	const [title, setTitle] = useState("");
+	const [date, setDate] = useState("");
+	const [time, setTime] = useState("");
+	const [upcomingTodos, setUpcomingTodos] = useState([]);
 
-	// // Second approach with the dates
-	// const handleAddTodo = (newTask) => {
-	// 	if (!title || !date || !time) {
-	// 		localStorage.setItem(
-	// 			"todos",
-	// 			JSON.stringify([
-	// 				...upcomingTodos,
-	// 				{
-	// 					id: Date.now(),
-	// 					title,
-	// 					date,
-	// 					time,
-	// 				},
-	// 			])
-	// 		);
-	// 		setTitle("");
-	// 		setDate("");
-	// 		setTime("");
-	// 	}
-	// };
+	useEffect(() => {
+		const storedTodos = JSON.parse(localStorage.getItem("todos"));
+		if (storedTodos) {
+			setUpcomingTodos(storedTodos);
+		}
+	}, [upcomingTodos.length]);
 
-	// ///Use Effect for the second approac
-	// useEffect(() => {
-	// 	const storedTodos = JSON.parse(localStorage.getItem("todos"));
-	// 	if (storedTodos) {
-	// 		setUpcomingTodos(storedTodos);
-	// 	}
-	// }, [upcomingTodos.length]);
+	const handleAddTodo = (newTask) => {
+		// e.preventDefault();
+		if (newTask.trim() !== !title || !date || !time)
+			setTodos([
+				...todos,
+				{
+					id: Date.now(),
+					title,
+					date,
+					time,
+					completed: false,
+				},
+			]);
+		setTitle("");
+		setDate(new Date());
+		setTime("");
+	};
+
+	function handleDelete(id) {
+		setTodos(todos.filter((todo) => todo.id !== id));
+	}
 
 	// // Sort todos by date and time
-	// // const sortedTodos = [...upcomingTodos].sort((a, b) => {
-	// // 	const dtA = new Date(`${a.date}T${a.time}`);
-	// // 	const dtB = new Date(`${b.date}T${b.time}`);
-	// // 	return dtA - dtB;
-	// // });
-
-	// // Update function with the title
-
-	// // Add Todo
-	// const handleAddTodo2 = (newTask) => {
-	// 	if (newTask.trim() !== "") {
-	// 		localStorage.setItem(
-	// 			"todos",
-	// 			JSON.stringify([...upcomingTodos, newTask])
-	// 		);
-	// 		setUpcomingTodos([...upcomingTodos, newTask]);
-	// 	}
-	// };
-
-	// const handleRemoveTodo = (index) => {
-	// 	// remove should be in upcoming tasks
-	// 	const newTodos = upcomingTodos.filter((_, i) => i !== index);
-	// 	localStorage.setItem("todos", JSON.stringify(newTodos));
-	// 	setUpcomingTodos(newTodos);
-	// };
-
-	// Dealing with the undefined JSON and get the todos from local storage
-	// useEffect(() => {
-	// 	function safeJSON(todos, fallback = null) {
-	// 		try {
-	// 			const storedTodos = localStorage.getItem(todos);
-	// 			return storedTodos ? JSON.parse(storedTodos) : fallback;
-	// 		} catch {
-	// 			localStorage.removeItem(todos);
-	// 		}
-	// 		return fallback;
-	// 	}
-	// 	safeJSON();
-	// 	// const storedTodos = JSON.parse(localStorage.getItem("todos") || "{}");
-	// 	// if (storedTodos) {
-	// 	// 	setUpcomingTodos(storedTodos);
-	// 	// }
-	// }, [upcomingTodos.length]);
-
+	const sortedTodos = [...todos].sort((a, b) => {
+		const dtA = new Date(`${a.date}T${a.time}`);
+		const dtB = new Date(`${b.date}T${b.time}`);
+		return dtA - dtB;
+	});
 	return (
 		<div className={styles.action}>
 			{/* Today's tasks */}
@@ -128,12 +91,26 @@ const TodoWrapper = () => {
 			</div>
 			{/* Add new task and greeting  */}
 			<div className={styles.addTasksContainer}>
-				<AddTasks />
+				<AddTasks
+					todos={todos}
+					setTodos={setTodos}
+					title={title}
+					setTitle={setTitle}
+					date={date}
+					setDate={setDate}
+					time={time}
+					setTime={setTime}
+					handleAddTodo={handleAddTodo}
+					handleDelete={handleDelete}
+					// sortedTodos={sortedTodos}
+				/>
 			</div>
 			{/* <AddTasks /> */}
 			<UpcomingTasks
-			// upcomingTodos={upcomingTodos}
-			// handleRemoveTodo={handleRemoveTodo}
+				sortedTodos={sortedTodos}
+				handleDelete={handleDelete}
+				// upcomingTodos={upcomingTodos}
+				// handleRemoveTodo={handleRemoveTodo}
 			/>
 
 			{/* <TestTodoComponent /> */}
@@ -142,3 +119,82 @@ const TodoWrapper = () => {
 };
 
 export default TodoWrapper;
+
+// const [upcomingTodos, setUpcomingTodos] = useState([]);
+// const [title, setTitle] = useState("");
+// const [date, setDate] = useState("");
+// const [time, setTime] = useState("");
+
+// // Second approach with the dates
+// const handleAddTodo = (newTask) => {
+// 	if (!title || !date || !time) {
+// 		localStorage.setItem(
+// 			"todos",
+// 			JSON.stringify([
+// 				...upcomingTodos,
+// 				{
+// 					id: Date.now(),
+// 					title,
+// 					date,
+// 					time,
+// 				},
+// 			])
+// 		);
+// 		setTitle("");
+// 		setDate("");
+// 		setTime("");
+// 	}
+// };
+
+// ///Use Effect for the second approac
+// useEffect(() => {
+// 	const storedTodos = JSON.parse(localStorage.getItem("todos"));
+// 	if (storedTodos) {
+// 		setUpcomingTodos(storedTodos);
+// 	}
+// }, [upcomingTodos.length]);
+
+// // Sort todos by date and time
+// // const sortedTodos = [...upcomingTodos].sort((a, b) => {
+// // 	const dtA = new Date(`${a.date}T${a.time}`);
+// // 	const dtB = new Date(`${b.date}T${b.time}`);
+// // 	return dtA - dtB;
+// // });
+
+// // Update function with the title
+
+// // Add Todo
+// const handleAddTodo2 = (newTask) => {
+// 	if (newTask.trim() !== "") {
+// 		localStorage.setItem(
+// 			"todos",
+// 			JSON.stringify([...upcomingTodos, newTask])
+// 		);
+// 		setUpcomingTodos([...upcomingTodos, newTask]);
+// 	}
+// };
+
+// const handleRemoveTodo = (index) => {
+// 	// remove should be in upcoming tasks
+// 	const newTodos = upcomingTodos.filter((_, i) => i !== index);
+// 	localStorage.setItem("todos", JSON.stringify(newTodos));
+// 	setUpcomingTodos(newTodos);
+// };
+
+// Dealing with the undefined JSON and get the todos from local storage
+// useEffect(() => {
+// 	function safeJSON(todos, fallback = null) {
+// 		try {
+// 			const storedTodos = localStorage.getItem(todos);
+// 			return storedTodos ? JSON.parse(storedTodos) : fallback;
+// 		} catch {
+// 			localStorage.removeItem(todos);
+// 		}
+// 		return fallback;
+// 	}
+// 	safeJSON();
+// 	// const storedTodos = JSON.parse(localStorage.getItem("todos") || "{}");
+// 	// if (storedTodos) {
+// 	// 	setUpcomingTodos(storedTodos);
+// 	// }
+// }, [upcomingTodos.length]);

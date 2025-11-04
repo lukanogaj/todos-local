@@ -7,7 +7,6 @@ function getInitialTodos() {
 	}
 	return [];
 }
-
 function App() {
 	const [todos, setTodos] = useState(getInitialTodos());
 	const [title, setTitle] = useState("");
@@ -35,18 +34,15 @@ function App() {
 		setDate("");
 		setTime("");
 	}
-
 	function handleDelete(id) {
 		setTodos(todos.filter((todo) => todo.id !== id));
 	}
-
 	// Sort todos by date and time
-	const sortedTodos = [...todos].sort((a, b) => {
+	const sortedTodos = [...(todos || [])].sort((a, b) => {
 		const dtA = new Date(`${a.date}T${a.time}`);
 		const dtB = new Date(`${b.date}T${b.time}`);
 		return dtA - dtB;
 	});
-
 	return (
 		<div
 			style={{ maxWidth: 500, margin: "2rem auto", fontFamily: "sans-serif" }}>
